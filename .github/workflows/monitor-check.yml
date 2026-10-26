@@ -1,0 +1,135 @@
+# BioComp resource monitor: every 20 minutes, check every website and backend API in
+# monitor/resources.yml (an API must return the expected JSON), record the code activity of each
+# resource's GitHub repository, and open/close an `outage` issue when one goes down/comes back.
+# Code comes from main (monitor/ only); results are committed to the `monitor-data` branch,
+# squashed to one commit per UTC day, so main's history is never touched by the tracker.
+# The branch is also the GitHub Pages source, so pushing to it republishes the dashboard.
+name: monitor-check
+
+on:
+  # Primary trigger: an external cron (cron-job.org) calls workflow_dispatch at :15/:35/:55,
+  # because GitHub's own scheduler drops most ticks (monitor/README.md "Check interval").
+  # These crons are a best-effort backup if that trigger stops. Worst case is 3 + 4 = 7 runs an
+  # hour, under the GitHub Pages soft limit of 10 builds an hour.
+  schedule:
+    - cron: "9 * * * *"
+    - cron: "24 * * * *"
+    - cron: "41 * * * *"
+    - cron: "58 * * * *"
+  workflow_dispatch:
+    inputs:
+      simulate_down:
+        description: "Test the outage alerts: resource id to treat as down, e.g. mobidb or mobidb--api (data is not changed)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  issues: write
+
+# Runs never overlap. If a run is still going when another is triggered, GitHub keeps only the
+# newest pending one; that is fine, because every run is a full snapshot.
+concurrency:
+  group: monitor-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out monitor code (monitor/ only)
+        uses: actions/checkout@v4
+        with:
+          path: repo
+          sparse-checkout: monitor
+
+      - name: Check out data branch
+        uses: actions/checkout@v4
+        with:
+          ref: monitor-data
+          path: _data
+          fetch-depth: 2
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: repo/monitor/requirements.txt
+
+      - name: Install
+        run: pip install -r repo/monitor/requirements.txt
+
+      - name: Check websites and APIs
+        run: python repo/monitor/scripts/check.py --config repo/monitor/resources.yml --data _data
+
+      - name: Record repository activity
+        env:
+          # The built-in token can only read this repository and public ones. ACTIVITY_TOKEN, if
+          # set, is a read-only fine-grained token for the private monitored repos (monitor/README.md).
+          GITHUB_TOKEN: ${{ secrets.ACTIVITY_TOKEN || secrets.GITHUB_TOKEN }}
+        run: python repo/monitor/scripts/activity.py --config repo/monitor/resources.yml --data _data
+
+      - name: Summarise
+        run: python repo/monitor/scripts/summarize.py --config repo/monitor/resources.yml --data _data
+
+      - name: Publish the dashboard
+        run: |
+          cp repo/monitor/dashboard/index.html _data/index.html
+          touch _data/.nojekyll   # serve paths starting with _ and skip the Jekyll build
+
+      - name: Show the status in this run's summary
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          s = json.load(open("_data/summary.json"))
+          t, ta, m = s["totals"], s["totals_api"], s["monitoring"]
+          print(f"## {'🔴' if m['stale'] else '🟢'} {s['resource_count']} websites and {s['api_count']} APIs checked\n")
+          print(f"**Websites:** 🟢 up **{t['up']}** · 🟡 challenged **{t['challenged']}** · "
+                f"🔴 down **{t['down']}** · 🔗 URL review **{t['url_review']}**\n")
+          print(f"**APIs:** 🟢 OK **{ta['up']}** · 🔴 down **{ta['down']}** "
+                f"(🟠 wrong payload **{ta['bad_payload']}**)\n")
+          print(f"Run {m['runs_total']} · {m['runs_last_24h']} runs in the last 24 h · {s['generated']}\n")
+          print("[Dashboard](https://biocomputingup.github.io/BioComp_resource_monitor/) · "
+                "[STATUS.md](https://github.com/BioComputingUP/BioComp_resource_monitor/blob/monitor-data/STATUS.md)\n")
+          down = [r for r in s["resources"] if r["state"] == "down"]
+          if down:
+              print(f"<details><summary>{len(down)} down</summary>\n")
+              print("| Resource | Reason | Since |\n|---|---|---|")
+              for r in sorted(down, key=lambda r: r["name"].lower()):
+                  print(f"| {r['name']} | `{r['reason']}` | {r['since']} |")
+              print("\n</details>\n")
+          repos = s["activity"]["repos"]
+          if repos:
+              print("| Repository | Last push | Activity |\n|---|---|---|")
+              for rid, a in repos.items():
+                  print(f"| {a['repo']} | {a.get('pushed_at') or '—'} | {a.get('freshness')}"
+                        f"{' (API error)' if a.get('error') else ''} |")
+          PY
+
+      - name: Commit results (one commit per UTC day)
+        working-directory: _data
+        run: |
+          bot_email="41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "$bot_email"
+          git add -A
+          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
+          lease=$(git rev-parse HEAD)
+          subject="monitor data $(date -u +%F)"
+          if [ "$(git log -1 --format=%s)" = "$subject" ] && [ "$(git log -1 --format=%ae)" = "$bot_email" ]; then
+            git commit --amend --no-edit --quiet
+          else
+            git commit -m "$subject" --quiet
+          fi
+          git push --force-with-lease="monitor-data:$lease" origin HEAD:monitor-data
+
+      # After the commit, so the results are saved even if the GitHub API fails here. It must use
+      # the built-in token: issues opened with your own token would not notify you.
+      - name: Open or close outage issues
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SIMULATE_DOWN: ${{ inputs.simulate_down }}
+        run: |
+          python repo/monitor/scripts/notify.py --config repo/monitor/resources.yml --data _data \
+            ${SIMULATE_DOWN:+--simulate-down "$SIMULATE_DOWN"}

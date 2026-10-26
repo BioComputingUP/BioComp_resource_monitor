@@ -1,0 +1,183 @@
+# BioComp resource monitor — the BioComputing UP resources that are checked. Hand-maintained.
+#   url                 the website checked for uptime
+#   group               dashboard grouping
+#   repo                the GitHub repository (owner/name) whose code activity is tracked
+#   check.url           overrides url for the uptime check
+#   check.verify_tls    false skips TLS verification (use sparingly)
+#   api.url             a backend endpoint, checked as a separate target "<id>--api"
+#   api.expect          what the JSON must contain for the API to count as up (monitor/README.md):
+#                         field: dotted path into the JSON that must exist (list items by index: 0.name)
+#                         equals: the value at field, compared as text
+#                         min: the number at field (or its length, for a list/object/text) is at least this
+#                         min_items: the whole JSON body is a list or object of at least this many items
+#
+# The DOME resources are tracked by BioComputingUP/dome-tracking; the dashboard shows them too,
+# read from that repo's data branch, so they are not repeated here.
+
+# Outage issues (scripts/notify.py): opened after this many failed runs in a row, closed when
+# the resource is back up. Mentioned and assigned users are emailed about both.
+notify:
+  mention: [gavinf97]
+  assign: [gavinf97]
+  min_consecutive_down: 2
+
+resources:
+# --- Databases ---------------------------------------------------------------
+- id: disprot
+  name: DisProt
+  group: Databases
+  url: https://disprot.org/
+  api:
+    url: https://disprot.org/api/DP00003
+    expect: {field: acc, equals: P03265}
+  enabled: true
+- id: mobidb
+  name: MobiDB
+  group: Databases
+  url: https://mobidb.org/
+  repo: BioComputingUP/mobidb-ui
+  api:
+    url: https://mobidb.org/api/download?acc=P04637&format=json
+    expect: {field: acc, equals: P04637}
+  enabled: true
+- id: repeatsdb
+  name: RepeatsDB
+  group: Databases
+  url: https://repeatsdb.org/
+  api:
+    url: https://repeatsdb.org/api/production/annotations?skip=0&limit=1
+    expect: {field: count, min: 1}
+  enabled: true
+- id: ped
+  name: PED
+  group: Databases
+  url: https://proteinensemble.org/
+  repo: BioComputingUP/ped5-ui
+  api:
+    url: https://deposition.proteinensemble.org/api/entries/PED00001
+    expect: {field: entry_id, equals: PED00001}
+  enabled: true
+- id: fuzdb
+  name: FuzDB
+  group: Databases
+  url: https://fuzdb.org/
+  api:
+    url: https://fuzdb.org/api/entries?entry_id=FC00001
+    expect: {field: 0.entry_id, equals: FC00001}
+  enabled: true
+- id: apicuron
+  name: APICURON
+  group: Databases
+  url: https://apicuron.org/
+  repo: BioComputingUP/apicuron
+  api:
+    url: https://apicuron.org/api/home
+    expect: {field: resource_count, min: 1}
+  enabled: true
+- id: caid
+  name: CAID
+  group: Databases
+  url: https://caid.idpcentral.org/
+  api:
+    url: https://caid.idpcentral.org/dataset-repository/api/dataset/
+    expect: {min_items: 1, field: 0.name}
+  enabled: true
+- id: idpcentral
+  name: IDPcentral
+  group: Databases
+  url: https://idpcentral.org/
+  enabled: true
+- id: phytotypedb
+  name: PhytotypeDB
+  group: Databases
+  url: http://phytotypedb.bio.unipd.it/
+  enabled: true
+- id: vhldb
+  name: VHLdb
+  group: Databases
+  url: https://vhldb.org/
+  enabled: true
+
+# --- Tools and web servers ---------------------------------------------------
+- id: ring
+  name: RING
+  group: Tools
+  url: https://ring.biocomputingup.it/
+  repo: BioComputingUP/ring-ui
+  enabled: true
+- id: fuzdrop
+  name: FuzDrop
+  group: Tools
+  url: https://fuzdrop.bio.unipd.it/
+  enabled: true
+- id: fuzpred
+  name: FuzPred
+  group: Tools
+  url: https://fuzpred.bio.unipd.it/predictor
+  enabled: true
+- id: inga
+  name: INGA
+  group: Tools
+  url: https://inga.bio.unipd.it/
+  enabled: true
+
+# --- Lab and registries ------------------------------------------------------
+- id: biocomputingup
+  name: BioComputing UP website
+  group: Lab & registries
+  url: https://biocomputingup.it/
+  repo: BioComputingUP/bup-ui
+  enabled: true
+- id: nto-registry
+  name: NTO Registry
+  group: Lab & registries
+  url: https://nto-registry.org/
+  repo: BioComputingUP/nto-registry
+  enabled: true
+
+# --- Legacy tools on old.protein.bio.unipd.it (one host; it sometimes resets connections) ---
+- id: align2
+  name: Align2
+  group: Legacy tools
+  url: http://old.protein.bio.unipd.it/align2/
+  enabled: true
+- id: bluues
+  name: BLUUES
+  group: Legacy tools
+  url: http://old.protein.bio.unipd.it/bluues/
+  enabled: true
+- id: fells
+  name: FELLS
+  group: Legacy tools
+  url: http://old.protein.bio.unipd.it/fells/
+  enabled: true
+- id: neemo
+  name: NEEMO
+  group: Legacy tools
+  url: http://old.protein.bio.unipd.it/neemo/
+  enabled: true
+- id: pasta2
+  name: PASTA 2.0
+  group: Legacy tools
+  url: http://old.protein.bio.unipd.it/pasta2/
+  enabled: true
+- id: raphael
+  name: RAPHAEL
+  group: Legacy tools
+  url: http://old.protein.bio.unipd.it/raphael/
+  enabled: true
+- id: repeatsdb-lite
+  name: RepeatsDB-lite
+  group: Legacy tools
+  url: http://old.protein.bio.unipd.it/repeatsdb-lite/
+  enabled: true
+- id: rubi
+  name: RUBI
+  group: Legacy tools
+  url: http://old.protein.bio.unipd.it/rubi/
+  enabled: true
+- id: soda
+  name: SODA
+  group: Legacy tools
+  url: http://old.protein.bio.unipd.it/soda/
+  enabled: true
