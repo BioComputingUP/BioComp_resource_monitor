@@ -1,0 +1,137 @@
+{
+ "generated": "2026-10-27T23:59:46Z",
+ "repos": {
+  "mobidb": {
+   "repo": "BioComputingUP/mobidb-ui",
+   "error": "404: repository not found or private; the token cannot read it (set the ACTIVITY_TOKEN secret)",
+   "fetched_at": "2026-10-27T23:59:46Z",
+   "freshness": "unknown"
+  },
+  "ped": {
+   "repo": "BioComputingUP/ped5-ui",
+   "html_url": "https://github.com/BioComputingUP/ped5-ui",
+   "default_branch": "main",
+   "pushed_at": "2026-09-07T12:26:09Z",
+   "archived": false,
+   "last_commit": {
+    "sha": "40b2996038ee81412725d4737d6e4d3f67f287a3",
+    "date": "2026-09-07T12:26:06Z",
+    "author": "Ivan Mičetić",
+    "message": "Test local configuration",
+    "url": "https://github.com/BioComputingUP/ped5-ui/commit/40b2996038ee81412725d4737d6e4d3f67f287a3"
+   },
+   "error": null,
+   "fetched_at": "2026-10-27T23:59:46Z",
+   "freshness": "quiet"
+  },
+  "apicuron": {
+   "repo": "BioComputingUP/apicuron",
+   "html_url": "https://github.com/BioComputingUP/apicuron",
+   "default_branch": "master",
+   "pushed_at": "2026-10-20T13:12:03Z",
+   "archived": false,
+   "last_commit": {
+    "sha": "6b0d322cfb91a4dea238ad5ead4ea071b47241f1",
+    "date": "2026-10-20T13:12:03Z",
+    "author": "Adel Kamel Eddine Bouhraoua",
+    "message": "Add GNU General Public License v3",
+    "url": "https://github.com/BioComputingUP/apicuron/commit/6b0d322cfb91a4dea238ad5ead4ea071b47241f1"
+   },
+   "error": null,
+   "fetched_at": "2026-10-27T23:59:46Z",
+   "freshness": "recent"
+  },
+  "ring": {
+   "repo": "BioComputingUP/ring-ui",
+   "error": "404: repository not found or private; the token cannot read it (set the ACTIVITY_TOKEN secret)",
+   "fetched_at": "2026-10-27T23:59:46Z",
+   "freshness": "unknown"
+  },
+  "biocomputingup": {
+   "repo": "BioComputingUP/bup-ui",
+   "error": "404: repository not found or private; the token cannot read it (set the ACTIVITY_TOKEN secret)",
+   "fetched_at": "2026-10-27T23:59:46Z",
+   "freshness": "unknown"
+  },
+  "nto-registry": {
+   "repo": "BioComputingUP/nto-registry",
+   "html_url": "https://github.com/BioComputingUP/nto-registry",
+   "default_branch": "main",
+   "pushed_at": "2026-10-22T15:37:29Z",
+   "archived": false,
+   "last_commit": {
+    "sha": "90578813a42b509c956b8ddfe0a72f05351166fd",
+    "date": "2026-10-22T15:37:27Z",
+    "author": "Gavin Farrell",
+    "message": "Security: update site dependencies to clear npm audit advisories",
+    "url": "https://github.com/BioComputingUP/nto-registry/commit/90578813a42b509c956b8ddfe0a72f05351166fd"
+   },
+   "error": null,
+   "fetched_at": "2026-10-27T23:59:46Z",
+   "freshness": "active"
+  },
+  "dome-ml": {
+   "repo": "BioComputingUP/dome-ml-ui",
+   "error": "404: repository not found or private; the token cannot read it (set the ACTIVITY_TOKEN secret)",
+   "fetched_at": "2026-10-27T23:59:46Z",
+   "freshness": "unknown"
+  },
+  "dome-registry": {
+   "repo": "BioComputingUP/dome-registry",
+   "html_url": "https://github.com/BioComputingUP/dome-registry",
+   "default_branch": "main",
+   "pushed_at": "2026-07-29T13:14:04Z",
+   "archived": false,
+   "last_commit": {
+    "sha": "4978003db56b9a36bc078689ceb4bf51679be708",
+    "date": "2026-07-29T13:13:58Z",
+    "author": "abdelghaniomar",
+    "message": "Add dome 2.0 schema + Logo modification",
+    "url": "https://github.com/BioComputingUP/dome-registry/commit/4978003db56b9a36bc078689ceb4bf51679be708"
+   },
+   "error": null,
+   "fetched_at": "2026-10-27T23:59:46Z",
+   "freshness": "quiet"
+  },
+  "dome-copilot": {
+   "repo": "IFCA-Advanced-Computing/dome-copilot",
+   "html_url": "https://github.com/IFCA-Advanced-Computing/dome-copilot",
+   "default_branch": "master",
+   "pushed_at": "2026-03-30T11:32:42Z",
+   "archived": false,
+   "last_commit": {
+    "sha": "e157c7b56b2ef326dd9b3523b270591ba65a3542",
+    "date": "2026-03-30T11:32:41Z",
+    "author": "Ignacio Heredia",
+    "message": "feat: make the model names configurable",
+    "url": "https://github.com/IFCA-Advanced-Computing/dome-copilot/commit/e157c7b56b2ef326dd9b3523b270591ba65a3542"
+   },
+   "error": null,
+   "fetched_at": "2026-10-27T23:59:46Z",
+   "freshness": "quiet"
+  },
+  "osai": {
+   "repo": "BioComputingUP/dome-ml-osai-ui",
+   "error": "404: repository not found or private; the token cannot read it (set the ACTIVITY_TOKEN secret)",
+   "fetched_at": "2026-10-27T23:59:46Z",
+   "freshness": "unknown"
+  },
+  "dome-observatory": {
+   "repo": "BioComputingUP/dome-ml-observatory",
+   "html_url": "https://github.com/BioComputingUP/dome-ml-observatory",
+   "default_branch": "main",
+   "pushed_at": "2026-10-22T15:36:34Z",
+   "archived": false,
+   "last_commit": {
+    "sha": "c749889b8f9b3cf3366c1a31e4bf7392bdbf0d14",
+    "date": "2026-10-22T15:36:32Z",
+    "author": "gavinfarrell",
+    "message": "Security: update dependencies to clear npm audit advisories",
+    "url": "https://github.com/BioComputingUP/dome-ml-observatory/commit/c749889b8f9b3cf3366c1a31e4bf7392bdbf0d14"
+   },
+   "error": null,
+   "fetched_at": "2026-10-27T23:59:46Z",
+   "freshness": "active"
+  }
+ }
+}

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BioComp Resource Monitor</title>
+<meta name="description" content="Live status of the BioComputing UP websites and APIs.">
+<style>
+  :root {
+    color-scheme: light;
+    --surface-1: #fcfcfb;
+    --page: #f9f9f7;
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted: #898781;
+    --grid: #e1e0d9;
+    /* Status palette — fixed, never themed. Always shipped with an icon + label. */
+    --good: #0ca30c;
+    --warning: #fab219;
+    --serious: #ec835a;
+    --critical: #d03b3b;
+    --nodata: #c9c8c1;
+    /* Group accents: one per table group. Kept clear of the status hues above. */
+    --g1: #3e6fd8; --g2: #7c5cd6; --g3: #1a8ea6; --g4: #b5509b; --g5: #6e7480; --g6: #9a6a3a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --surface-1: #1a1a19;
+      --page: #0d0d0d;
+      --text-primary: #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted: #898781;
+      --grid: #2c2c2a;
+      --nodata: #3a3a37;
+      --g1: #7aa2f2; --g2: #a68cf0; --g3: #4fc0d6; --g4: #e083c6; --g5: #9aa0aa; --g6: #d2a06e;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --surface-1: #1a1a19;
+    --page: #0d0d0d;
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted: #898781;
+    --grid: #2c2c2a;
+    --nodata: #3a3a37;
+    --g1: #7aa2f2; --g2: #a68cf0; --g3: #4fc0d6; --g4: #e083c6; --g5: #9aa0aa; --g6: #d2a06e;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--text-primary);
+    font: 15px/1.5 ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 32px 16px 64px; }
+  a { color: inherit; }
+  h1 { font-size: 1.5rem; margin: 0; letter-spacing: -0.01em; }
+  h2 { font-size: 1.05rem; margin: 0 0 12px; letter-spacing: -0.01em; }
+  .sub { color: var(--text-secondary); font-size: 0.875rem; margin: 6px 0 0; }
+
+  header { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; justify-content: space-between; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 7px; padding: 5px 12px; border-radius: 999px;
+    font-size: 0.8125rem; font-weight: 600; border: 1px solid var(--grid); background: var(--surface-1);
+  }
+  .pill .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+  .live .dot { background: var(--good); box-shadow: 0 0 0 3px color-mix(in srgb, var(--good) 22%, transparent); }
+  .stale .dot { background: var(--critical); box-shadow: 0 0 0 3px color-mix(in srgb, var(--critical) 22%, transparent); }
+
+  .meta { display: flex; flex-wrap: wrap; gap: 6px 20px; color: var(--text-secondary); font-size: 0.8125rem; margin-top: 14px; }
+  .meta b { color: var(--text-primary); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 24px 0; }
+  .tile { background: var(--surface-1); border: 1px solid var(--grid); border-radius: 12px; padding: 16px 18px; }
+  .tile .n { font-size: 2rem; font-weight: 650; line-height: 1.1; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  .tile .l { display: flex; align-items: center; gap: 7px; font-size: 0.8125rem; color: var(--text-secondary); margin-top: 6px; }
+  .tile .l .dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+
+  .panel { background: var(--surface-1); border: 1px solid var(--grid); border-radius: 12px; padding: 18px 18px 6px; margin-bottom: 22px; }
+  .panel.empty { padding-bottom: 18px; }
+  .note { color: var(--text-secondary); font-size: 0.8125rem; margin: -4px 0 14px; }
+
+  .controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+  input[type="search"], select {
+    font: inherit; font-size: 0.875rem; padding: 8px 11px; border-radius: 8px;
+    border: 1px solid var(--grid); background: var(--surface-1); color: var(--text-primary);
+  }
+  input[type="search"] { flex: 1 1 220px; min-width: 0; }
+  input:focus-visible, select:focus-visible, button:focus-visible, th:focus-visible {
+    outline: 2px solid var(--text-primary); outline-offset: 1px;
+  }
+
+  .tscroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--grid); vertical-align: middle; }
+  th {
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted);
+    font-weight: 600; white-space: nowrap; position: sticky; top: 0; background: var(--surface-1); z-index: 1;
+  }
+  th[data-sort] { cursor: pointer; user-select: none; }
+  th[data-sort]:hover { color: var(--text-primary); }
+  th[data-t] { cursor: help; text-decoration: underline dotted; text-underline-offset: 3px; }
+  th .arrow { opacity: 0.35; }
+  th[aria-sort] .arrow { opacity: 1; }
+  tbody tr:hover { background: color-mix(in srgb, var(--text-primary) 4%, transparent); }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.name { font-weight: 500; }
+  td.name a { text-decoration: none; }
+  td.name a:hover { text-decoration: underline; }
+  .node { color: var(--text-secondary); font-size: 0.8125rem; white-space: nowrap; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8125rem; color: var(--text-secondary); }
+
+  /* State label: dot + word. Colour never carries the meaning on its own. */
+  .state { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; font-size: 0.8125rem; }
+  .state .dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+  .s-up .dot { background: var(--good); }
+  .s-challenged .dot { background: var(--warning); }
+  .s-down .dot { background: var(--critical); }
+  .s-unknown .dot { background: var(--nodata); }
+  /* Repository freshness and run cadence reuse the same dot + word pattern. */
+  .f-active .dot { background: var(--good); }
+  .f-recent .dot { background: var(--warning); }
+  .f-quiet .dot { background: var(--critical); }
+  .f-unknown .dot { background: var(--nodata); }
+  .meta .state { font-size: inherit; gap: 6px; }
+
+  .flag {
+    display: inline-block; margin-left: 6px; padding: 1px 6px; border-radius: 5px; font-size: 0.6875rem;
+    font-weight: 600; border: 1px solid var(--serious); color: var(--text-primary);
+    background: color-mix(in srgb, var(--serious) 18%, transparent);
+  }
+
+  /* 90-day strip: one 4px-wide bar per day, 2px surface gap between bars. */
+  .strip { display: flex; gap: 2px; align-items: flex-end; height: 22px; }
+  .strip i { width: 4px; height: 100%; border-radius: 2px; background: var(--nodata); flex: none; }
+  .strip i.ok { background: var(--good); }
+  .strip i.warn { background: var(--warning); }
+  .strip i.bad { background: var(--critical); }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 0.75rem; color: var(--text-secondary); padding: 12px 0 14px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+
+  #tip {
+    position: fixed; z-index: 50; pointer-events: none; opacity: 0; transition: opacity 0.1s;
+    background: var(--text-primary); color: var(--surface-1); font-size: 0.75rem; line-height: 1.45;
+    padding: 6px 9px; border-radius: 6px; max-width: 300px; font-variant-numeric: tabular-nums;
+  }
+
+  footer { color: var(--text-secondary); font-size: 0.8125rem; margin-top: 28px; }
+  .banner {
+    border: 1px solid var(--critical); background: color-mix(in srgb, var(--critical) 12%, transparent);
+    border-radius: 12px; padding: 14px 16px; margin-bottom: 22px; font-size: 0.875rem;
+  }
+  button.ghost {
+    font: inherit; font-size: 0.8125rem; padding: 7px 11px; border-radius: 8px; cursor: pointer;
+    border: 1px solid var(--grid); background: var(--surface-1); color: var(--text-secondary);
+  }
+  @media (max-width: 720px) {
+    .hide-sm { display: none; }
+    .wrap { padding-top: 20px; }
+  }
+
+  /* Joint view: one row per resource, website and API side by side. */
+  .s-payload .dot { background: var(--serious); }
+  .tcell { display: flex; flex-direction: column; gap: 5px; min-width: 150px; }
+  .tcell .top { display: flex; align-items: center; gap: 10px; }
+  .tcell .v { font-variant-numeric: tabular-nums; color: var(--text-secondary); font-size: 0.8125rem; }
+  .none { color: var(--text-muted); font-size: 0.8125rem; }
+  /* Group breaks: a spacer, then a header tinted in the group's accent; the group's rows keep
+     a thin accent edge so the grouping still reads when scrolled past the header. */
+  tr.gap td { height: 14px; padding: 0; border: 0; background: var(--surface-1); }
+  tbody tr.gap:hover, tbody tr.grp:hover { background: none; }
+  tr.grp td {
+    background: color-mix(in srgb, var(--gc) 13%, var(--surface-1));
+    border-top: 2px solid var(--gc); border-bottom: 1px solid color-mix(in srgb, var(--gc) 35%, transparent);
+    box-shadow: inset 4px 0 0 var(--gc);
+    color: color-mix(in srgb, var(--gc) 65%, var(--text-primary));
+    font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 10px 14px;
+  }
+  tr.grp td .note-d { text-transform: none; letter-spacing: 0; font-weight: 500; margin-left: 6px; opacity: 0.85; }
+  tr.grp td .src {
+    text-transform: none; letter-spacing: 0; font-weight: 600; font-size: 0.75rem; margin-left: 10px;
+    padding: 1px 8px; border-radius: 999px; color: var(--gc);
+    background: color-mix(in srgb, var(--gc) 16%, transparent);
+  }
+  tr.g td:first-child { box-shadow: inset 3px 0 0 color-mix(in srgb, var(--gc) 55%, transparent); padding-left: 14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>BioComputing UP resource monitor</h1>
+      <p class="sub">Checks every 20 minutes that each website is up and each API returns the right data.</p>
+      <div class="meta" id="meta"></div>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <span id="health" class="pill live"><span class="dot"></span><span id="health-text">loading…</span></span>
+      <button class="ghost" id="theme" title="Toggle light / dark" aria-label="Toggle light / dark">Theme</button>
+    </div>
+  </header>
+
+  <div id="banner" style="margin-top:16px"></div>
+  <div class="tiles" id="tiles"></div>
+
+  <div class="panel" id="attention-panel" hidden>
+    <h2>Needs attention</h2>
+    <p class="note" id="attention-note"></p>
+    <div class="tscroll"><table>
+      <thead><tr>
+        <th>Resource</th><th>State</th>
+        <th>Reason</th><th class="hide-sm">Since (UTC)</th><th class="num">30d</th>
+      </tr></thead>
+      <tbody id="attention"></tbody>
+    </table></div>
+  </div>
+
+  <div class="panel">
+    <h2>Websites and APIs</h2>
+    <p class="note">An API is up when it returns the expected data. Wrong data means it answered with
+      something else, often a web page.</p>
+    <div class="controls">
+      <input type="search" id="q" placeholder="Search resources…" aria-label="Search resources">
+      <select id="f-group" aria-label="Filter by group"><option value="">All groups</option></select>
+      <select id="f-state" aria-label="Filter by state">
+        <option value="">All states</option>
+        <option value="problem">Down or wrong data</option>
+        <option value="api">Has an API</option>
+      </select>
+    </div>
+    <div class="legend">
+      <span>One bar per day:</span>
+      <span><i style="background:var(--good)"></i> up all day</span>
+      <span><i style="background:var(--warning)"></i> partly down</span>
+      <span><i style="background:var(--critical)"></i> mostly down</span>
+      <span><i style="background:var(--nodata)"></i> no data</span>
+      <span style="color:var(--text-muted)">Hover a bar or a column name for details.</span>
+    </div>
+    <div class="tscroll"><table>
+      <thead><tr>
+        <th>Resource</th>
+        <th data-t="Up: the site answers. Challenged: a bot check answered instead. Down: no answer or a server error. The % is uptime over the last 30 days.">🌐 Website · 30 days</th>
+        <th data-t="Up: the API returns the expected data. Wrong data: it answers, but with something else. Down: no answer or an error. No API: none is checked for this resource.">🔌 API · 30 days</th>
+        <th class="num hide-sm" data-t="Response time: 95% of website checks in the last 30 days were faster than this.">Speed</th>
+        <th class="hide-sm" data-t="When the resource's GitHub repo was last pushed to. Active: within 7 days. Recent: within 30 days. Quiet: longer ago. No access: the repo is private.">Code</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table></div>
+    <p class="note" id="count" style="margin:14px 0 12px"></p>
+  </div>
+
+  <footer id="foot"></footer>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const tip = $("#tip");
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const pct = (x) => x === null || x === undefined ? "—" : (x * 100).toFixed(2) + "%";
+const STATES = { up: "up", challenged: "challenged", down: "down", payload: "wrong data", unknown: "never checked" };
+const REPO_URL = "https://github.com/BioComputingUP/BioComp_resource_monitor";
+
+const GROUP_ORDER = ["Databases", "Web tools", "Lab website", "Registries", "DOME ecosystem", "Legacy tools"];
+// Shown after a group's name. Legacy tools are the ones still served from the old lab server.
+const GROUP_NOTE = { "Legacy tools": "old.protein.bio.unipd.it" };
+const GROUP_COLOR = { "Databases": "--g1", "Web tools": "--g2", "Lab website": "--g3", "Registries": "--g6",
+                      "DOME ecosystem": "--g4", "Legacy tools": "--g5" };
+const groupLabel = (g) => GROUP_NOTE[g] ? `${g} (${GROUP_NOTE[g]})` : g;
+
+let SUMMARY = null, HISTORY = null;
+let RESOURCES = [];   // one entry per resource: {group, web, api, activity}
+
+function ago(min) {
+  if (min === null || min === undefined) return "never";
+  if (min < 60) return min + " min ago";
+  if (min < 2880) return Math.floor(min / 60) + " h ago";
+  return Math.floor(min / 1440) + " days ago";
+}
+
+// Ages are measured against the viewer's clock, not the time summary.json was written,
+// so a tracker that has stopped running shows as STALE even though no run says so.
+const minsSince = (ts) => ts ? Math.max(0, Math.round((Date.now() - Date.parse(ts)) / 60000)) : null;
+
+function freshness(pushedAt) {
+  if (!pushedAt) return "unknown";
+  const days = (Date.now() - Date.parse(pushedAt)) / 86400000;
+  return days < 7 ? "active" : days < 30 ? "recent" : "quiet";
+}
+
+function health(m) {
+  const ageMin = minsSince(m.last_run);
+  const staleAfter = m.stale_after_minutes || m.interval_minutes * 3;
+  const stale = m.stale || ageMin === null || ageMin > staleAfter;
+  const runs24 = (m.recent_runs || []).filter((ts) => Date.now() - Date.parse(ts) < 86400000).length;
+  const expected24 = m.expected_runs_24h || Math.floor(1440 / m.interval_minutes);
+  const share = runs24 / Math.max(expected24, 1);
+  return { ageMin, stale, runs24, expected24, cadence: share >= 0.75 ? "active" : share >= 0.33 ? "recent" : "quiet" };
+}
+
+const viewState = (r) => !r ? null
+  : r.state === "down" && (r.reason || "").startsWith("bad_payload") ? "payload" : r.state;
+
+function stateLabel(r) {
+  const s = viewState(r);
+  const detail = [r.reason && r.reason !== "ok" ? r.reason : "", r.code ? "HTTP " + r.code : "",
+                  r.since ? "since " + r.since : ""].filter(Boolean).join(" · ");
+  return `<span class="state s-${s}" ${detail ? `data-t="${esc(detail)}"` : ""}><span class="dot"></span>${STATES[s] || esc(s)}</span>`;
+}
+
+const STRIP_DAYS = 30;  // the strip shows the most recent STRIP_DAYS; history.json holds 90
+
+function stripHTML(history, id) {
+  const h = history && history.resources[id];
+  if (!h) return "";
+  const from = Math.max(0, h.uptime.length - STRIP_DAYS);
+  const start = new Date(history.start + "T00:00:00Z");
+  const bars = h.uptime.slice(from).map((u, j) => {
+    const i = from + j;
+    const d = new Date(start.getTime() + i * 86400000).toISOString().slice(0, 10);
+    const n = h.checks[i];
+    const cls = u === null ? "" : u >= 99.999 ? "ok" : u >= 50 ? "warn" : "bad";
+    const label = u === null ? "no data" : u.toFixed(1) + "% up · " + n + (n === 1 ? " check" : " checks");
+    return `<i class="${cls}" data-t="${d} — ${label}"></i>`;
+  }).join("");
+  return `<div class="strip hide-sm" role="img" aria-label="Daily uptime, last ${Math.min(STRIP_DAYS, h.uptime.length)} days">${bars}</div>`;
+}
+
+function targetCell(r, history) {
+  if (!r) return `<span class="none">no API</span>`;
+  return `<div class="tcell"><div class="top">${stateLabel(r)}<span class="v">${pct(r.windows["30d"].uptime)}</span></div>
+    ${stripHTML(history, r.id)}</div>`;
+}
+
+// Fold the targets into one entry per resource: the website, and its API if any.
+function buildResources() {
+  const apis = {};
+  for (const r of SUMMARY.resources) if (r.kind === "api") apis[r.parent] = r;
+  const repos = (SUMMARY.activity && SUMMARY.activity.repos) || {};
+  return SUMMARY.resources.filter((r) => r.kind !== "api").map((r) =>
+    ({ group: r.group || "Other", web: r, api: apis[r.id] || null, activity: repos[r.id] || null }));
+}
+
+function render() {
+  const q = $("#q").value.trim().toLowerCase();
+  const fg = $("#f-group").value, fs = $("#f-state").value;
+  const problem = (x) => ["down", "payload"].includes(viewState(x.web)) || ["down", "payload"].includes(viewState(x.api));
+  const rows = RESOURCES.filter((x) =>
+    (!fg || x.group === fg) &&
+    (!fs || (fs === "problem" ? problem(x) : fs === "api" ? !!x.api : true)) &&
+    (!q || [x.web.name, x.web.id, x.web.url, x.web.repo, x.api && x.api.url]
+      .some((v) => (v || "").toLowerCase().includes(q))));
+
+  const groups = [...new Set(rows.map((x) => x.group))]
+    .sort((a, b) => (GROUP_ORDER.indexOf(a) + 1 || 99) - (GROUP_ORDER.indexOf(b) + 1 || 99));
+  $("#rows").innerHTML = groups.map((g, i) => {
+    const inGroup = rows.filter((x) => x.group === g).sort((a, b) => a.web.name.localeCompare(b.web.name));
+    const note = GROUP_NOTE[g] ? `<span class="note-d">(${esc(GROUP_NOTE[g])})</span>` : "";
+    const gc = `style="--gc:var(${GROUP_COLOR[g] || "--g5"})"`;
+    const head = `${i ? '<tr class="gap"><td colspan="5"></td></tr>' : ""}<tr class="grp" ${gc}><td colspan="5">${esc(g)}${note}<span class="src">${inGroup.length}</span></td></tr>`;
+    return head + inGroup.map((x) => {
+      const w = x.web, a = x.activity, f = a ? freshness(a.pushed_at) : null;
+      return `<tr class="g" ${gc}>
+        <td class="name"><a href="${esc(w.url)}" rel="noopener">${esc(w.name)}</a>${w.url_review ? '<span class="flag">check URL</span>' : ""}${w.tls_warning
+          ? `<span class="flag" title="${esc(w.tls_warning)}">TLS chain</span>` : ""}
+          ${x.api ? `<div class="hide-sm"><a class="node" href="${esc(x.api.url)}" rel="noopener" style="text-decoration:none">${esc(x.api.url.replace(/^https?:\/\//, "").slice(0, 52))}</a></div>` : ""}</td>
+        <td>${targetCell(w, HISTORY)}</td>
+        <td>${targetCell(x.api, HISTORY)}</td>
+        <td class="num hide-sm">${esc(w.latency_30d.p95 || "—")}</td>
+        <td class="hide-sm">${a ? (a.pushed_at
+          ? `<span class="state f-${f}" data-t="${esc(a.repo)} · last push ${esc(a.pushed_at)}"><span class="dot"></span>${f}</span>`
+          : `<span class="state f-unknown" data-t="${esc(a.repo)} is private, so its activity can't be read."><span class="dot"></span>no access</span>`)
+          : '<span class="none">—</span>'}</td>
+      </tr>`;
+    }).join("");
+  }).join("");
+  const nApi = rows.filter((x) => x.api).length;
+  $("#count").textContent = `Showing ${rows.length} of ${RESOURCES.length} resources, ${nApi} with an API.`;
+}
+
+function boot() {
+  const m = SUMMARY.monitoring, h = health(m);
+  RESOURCES = buildResources();
+
+  $("#health").className = "pill " + (h.stale ? "stale" : "live");
+  $("#health-text").textContent = h.stale ? "Monitoring STALE" : "Monitoring active";
+  if (h.stale) {
+    $("#banner").innerHTML = `<div class="banner"><b>Monitoring has stopped.</b> The last check was
+      ${ago(h.ageMin)}. Check the cron-job.org job and its token. The figures below are from the last run.</div>`;
+  }
+  $("#meta").innerHTML = `<span>Last check <b>${ago(h.ageMin)}</b></span>
+    <span class="state f-${h.cadence}" data-t="The target is one run every 20 minutes, ${h.expected24} a day.">
+      <span class="dot"></span><b>${h.runs24}</b>&nbsp;of ${h.expected24} runs in the last 24 h</span>
+    <a href="${esc(m.workflow_url)}">Runs ↗</a>`;
+
+  const webs = RESOURCES.map((x) => x.web), apis = RESOURCES.filter((x) => x.api).map((x) => x.api);
+  const count = (list, s) => list.filter((r) => viewState(r) === s).length;
+  const down = count(webs, "down") + count(apis, "down");
+  $("#tiles").innerHTML = [
+    [`${count(webs, "up") + count(webs, "challenged")}/${webs.length}`, "websites up", "var(--good)"],
+    [`${count(apis, "up")}/${apis.length}`, "APIs up", "var(--good)"],
+    [count(apis, "payload"), "APIs with wrong data", "var(--serious)"],
+    [down, "down", "var(--critical)"],
+    [count(webs, "challenged"), "behind a bot check", "var(--warning)"],
+  ].map(([n, label, color]) => `<div class="tile"><div class="n">${n}</div>
+    <div class="l"><span class="dot" style="background:${color}"></span>${label}</div></div>`).join("");
+
+  const att = RESOURCES.flatMap((x) => [x.web, x.api].filter(Boolean).map((r) => ({ r, x })))
+    .filter(({ r }) => r.state === "down" || r.url_review)
+    .sort((a, b) => (a.r.since || "").localeCompare(b.r.since || ""));
+  if (att.length) {
+    $("#attention-panel").hidden = false;
+    $("#attention-note").textContent = `"Check URL" means the page is gone (404), so the address needs updating.`;
+    $("#attention").innerHTML = att.map(({ r, x }) => `<tr>
+      <td class="name"><a href="${esc(r.url)}" rel="noopener">${esc(r.name)}</a>${r.url_review ? '<span class="flag">check URL</span>' : ""}</td>
+      <td>${stateLabel(r)}</td>
+      <td><code>${esc(r.reason || "—")}</code></td>
+      <td class="node hide-sm">${esc(r.since || "—")}</td>
+      <td class="num">${pct(r.windows["30d"].uptime)}</td>
+    </tr>`).join("");
+  }
+
+  const groups = [...new Set(RESOURCES.map((x) => x.group))]
+    .sort((a, b) => (GROUP_ORDER.indexOf(a) + 1 || 99) - (GROUP_ORDER.indexOf(b) + 1 || 99));
+  $("#f-group").innerHTML += groups.map((g) => `<option value="${esc(g)}">${esc(groupLabel(g))}</option>`).join("");
+
+  $("#foot").innerHTML = `Updated <b>${esc(SUMMARY.generated)}</b> ·
+    <a href="${REPO_URL}/blob/monitor-data/STATUS.md">STATUS.md</a> ·
+    <a href="summary.json">summary.json</a> ·
+    <a href="${REPO_URL}/tree/main/monitor">How it works</a>.
+    Checks run from GitHub's servers.`;
+
+  render();
+}
+
+for (const el of [$("#q"), $("#f-group"), $("#f-state")]) el.addEventListener("input", render);
+
+document.addEventListener("mouseover", (e) => {
+  const t = e.target.closest("[data-t]");
+  if (!t) return;
+  tip.textContent = t.dataset.t;
+  const r = t.getBoundingClientRect();
+  tip.style.opacity = 1;
+  tip.style.left = Math.min(Math.max(8, r.left + r.width / 2 - tip.offsetWidth / 2), innerWidth - tip.offsetWidth - 8) + "px";
+  tip.style.top = (r.top > 46 ? r.top - tip.offsetHeight - 8 : r.bottom + 8) + "px";
+});
+document.addEventListener("mouseout", (e) => { if (e.target.closest("[data-t]")) tip.style.opacity = 0; });
+
+$("#theme").addEventListener("click", () => {
+  const dark = matchMedia("(prefers-color-scheme: dark)").matches;
+  const cur = document.documentElement.dataset.theme || (dark ? "dark" : "light");
+  document.documentElement.dataset.theme = cur === "dark" ? "light" : "dark";
+});
+
+const getJSON = (url) => fetch(url, { cache: "no-store" }).then((r) => {
+  if (!r.ok) throw new Error("HTTP " + r.status);
+  return r.json();
+});
+
+Promise.all([getJSON("summary.json"), getJSON("history.json").catch(() => null)])
+.then(([summary, history]) => {
+  SUMMARY = summary; HISTORY = history;
+  boot();
+}).catch((err) => {
+  $("#health").className = "pill stale";
+  $("#health-text").textContent = "Could not load results";
+  $("#banner").innerHTML = `<div class="banner"><b>Could not load summary.json.</b>
+    ${esc(err.message)} — see <a href="${REPO_URL}/blob/monitor-data/STATUS.md">STATUS.md</a>.</div>`;
+});
+</script>
+</body>
+</html>
