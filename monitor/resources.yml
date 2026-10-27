@@ -12,8 +12,6 @@
 #                         min_items: the whole JSON body is a list or object of at least this many items
 #   notify              GitHub usernames also emailed when this resource (website or API) is down
 #
-# The DOME resources are tracked by BioComputingUP/dome-tracking; the dashboard shows them too,
-# read from that repo's data branch, so they are not repeated here.
 
 # Outage issues (scripts/notify.py): opened after this many failed runs in a row, closed when
 # the resource is back up. The people here are @mentioned and assigned on every outage issue, so
@@ -122,6 +120,16 @@ resources:
   group: Tools
   url: https://inga.bio.unipd.it/
   enabled: true
+- id: bluues-bup
+  name: BLUUES
+  group: Tools
+  url: https://bluues.biocomputingup.it/
+  enabled: true
+- id: pasta
+  name: PASTA
+  group: Tools
+  url: https://pasta.biocomputingup.it/
+  enabled: true
 
 # --- Lab and registries ------------------------------------------------------
 - id: biocomputingup
@@ -129,6 +137,11 @@ resources:
   group: Lab & registries
   url: https://biocomputingup.it/
   repo: BioComputingUP/bup-ui
+  enabled: true
+- id: dome
+  name: DOME
+  group: Lab & registries
+  url: https://dome-ml.org/
   enabled: true
 - id: nto-registry
   name: NTO Registry
