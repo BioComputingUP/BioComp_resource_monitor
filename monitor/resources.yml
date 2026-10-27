@@ -131,16 +131,16 @@ resources:
   url: https://pasta.biocomputingup.it/
   enabled: true
 
-# --- Lab and registries ------------------------------------------------------
+# --- Lab website and registries ----------------------------------------------
 - id: biocomputingup
   name: BioComputing UP website
-  group: Lab & registries
+  group: Lab website
   url: https://biocomputingup.it/
   repo: BioComputingUP/bup-ui
   enabled: true
 - id: nto-registry
   name: NTO Registry
-  group: Lab & registries
+  group: Registries
   url: https://nto-registry.org/
   repo: BioComputingUP/nto-registry
   notify: [gavinf97]

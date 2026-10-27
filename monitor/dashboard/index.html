@@ -20,6 +20,8 @@
     --serious: #ec835a;
     --critical: #d03b3b;
     --nodata: #c9c8c1;
+    /* Group accents: one per table group. Kept clear of the status hues above. */
+    --g1: #3e6fd8; --g2: #7c5cd6; --g3: #1a8ea6; --g4: #b5509b; --g5: #6e7480; --g6: #9a6a3a;
   }
   @media (prefers-color-scheme: dark) {
     :root:where(:not([data-theme="light"])) {
@@ -31,6 +33,7 @@
       --text-muted: #898781;
       --grid: #2c2c2a;
       --nodata: #3a3a37;
+      --g1: #7aa2f2; --g2: #a68cf0; --g3: #4fc0d6; --g4: #e083c6; --g5: #9aa0aa; --g6: #d2a06e;
     }
   }
   :root[data-theme="dark"] {
@@ -42,6 +45,7 @@
     --text-muted: #898781;
     --grid: #2c2c2a;
     --nodata: #3a3a37;
+    --g1: #7aa2f2; --g2: #a68cf0; --g3: #4fc0d6; --g4: #e083c6; --g5: #9aa0aa; --g6: #d2a06e;
   }
 
   * { box-sizing: border-box; }
@@ -167,11 +171,24 @@
   .tcell .top { display: flex; align-items: center; gap: 10px; }
   .tcell .v { font-variant-numeric: tabular-nums; color: var(--text-secondary); font-size: 0.8125rem; }
   .none { color: var(--text-muted); font-size: 0.8125rem; }
+  /* Group breaks: a spacer, then a header tinted in the group's accent; the group's rows keep
+     a thin accent edge so the grouping still reads when scrolled past the header. */
+  tr.gap td { height: 14px; padding: 0; border: 0; background: var(--surface-1); }
+  tbody tr.gap:hover, tbody tr.grp:hover { background: none; }
   tr.grp td {
-    background: color-mix(in srgb, var(--text-primary) 3%, transparent); font-size: 0.75rem; font-weight: 650;
-    text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); padding: 7px 10px;
+    background: color-mix(in srgb, var(--gc) 13%, var(--surface-1));
+    border-top: 2px solid var(--gc); border-bottom: 1px solid color-mix(in srgb, var(--gc) 35%, transparent);
+    box-shadow: inset 4px 0 0 var(--gc);
+    color: color-mix(in srgb, var(--gc) 65%, var(--text-primary));
+    font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 10px 14px;
   }
-  tr.grp td .src { text-transform: none; letter-spacing: 0; font-weight: 500; color: var(--text-muted); margin-left: 8px; }
+  tr.grp td .note-d { text-transform: none; letter-spacing: 0; font-weight: 500; margin-left: 6px; opacity: 0.85; }
+  tr.grp td .src {
+    text-transform: none; letter-spacing: 0; font-weight: 600; font-size: 0.75rem; margin-left: 10px;
+    padding: 1px 8px; border-radius: 999px; color: var(--gc);
+    background: color-mix(in srgb, var(--gc) 16%, transparent);
+  }
+  tr.g td:first-child { box-shadow: inset 3px 0 0 color-mix(in srgb, var(--gc) 55%, transparent); padding-left: 14px; }
 </style>
 </head>
 <body>
@@ -249,9 +266,11 @@ const pct = (x) => x === null || x === undefined ? "—" : (x * 100).toFixed(2) 
 const STATES = { up: "up", challenged: "challenged", down: "down", payload: "wrong data", unknown: "never checked" };
 const REPO_URL = "https://github.com/BioComputingUP/BioComp_resource_monitor";
 
-const GROUP_ORDER = ["Databases", "Web tools", "Lab & registries", "DOME ecosystem", "Legacy tools"];
+const GROUP_ORDER = ["Databases", "Web tools", "Lab website", "Registries", "DOME ecosystem", "Legacy tools"];
 // Shown after a group's name. Legacy tools are the ones still served from the old lab server.
 const GROUP_NOTE = { "Legacy tools": "old.protein.bio.unipd.it" };
+const GROUP_COLOR = { "Databases": "--g1", "Web tools": "--g2", "Lab website": "--g3", "Registries": "--g6",
+                      "DOME ecosystem": "--g4", "Legacy tools": "--g5" };
 const groupLabel = (g) => GROUP_NOTE[g] ? `${g} (${GROUP_NOTE[g]})` : g;
 
 let SUMMARY = null, HISTORY = null;
@@ -339,13 +358,14 @@ function render() {
 
   const groups = [...new Set(rows.map((x) => x.group))]
     .sort((a, b) => (GROUP_ORDER.indexOf(a) + 1 || 99) - (GROUP_ORDER.indexOf(b) + 1 || 99));
-  $("#rows").innerHTML = groups.map((g) => {
+  $("#rows").innerHTML = groups.map((g, i) => {
     const inGroup = rows.filter((x) => x.group === g).sort((a, b) => a.web.name.localeCompare(b.web.name));
-    const note = GROUP_NOTE[g] ? `<span class="src">(${esc(GROUP_NOTE[g])})</span>` : "";
-    const head = `<tr class="grp"><td colspan="5">${esc(g)}${note}<span class="src">${inGroup.length}</span></td></tr>`;
+    const note = GROUP_NOTE[g] ? `<span class="note-d">(${esc(GROUP_NOTE[g])})</span>` : "";
+    const gc = `style="--gc:var(${GROUP_COLOR[g] || "--g5"})"`;
+    const head = `${i ? '<tr class="gap"><td colspan="5"></td></tr>' : ""}<tr class="grp" ${gc}><td colspan="5">${esc(g)}${note}<span class="src">${inGroup.length}</span></td></tr>`;
     return head + inGroup.map((x) => {
       const w = x.web, a = x.activity, f = a ? freshness(a.pushed_at) : null;
-      return `<tr>
+      return `<tr class="g" ${gc}>
         <td class="name"><a href="${esc(w.url)}" rel="noopener">${esc(w.name)}</a>${w.url_review ? '<span class="flag">check URL</span>' : ""}${w.tls_warning
           ? `<span class="flag" title="${esc(w.tls_warning)}">TLS chain</span>` : ""}
           ${x.api ? `<div class="hide-sm"><a class="node" href="${esc(x.api.url)}" rel="noopener" style="text-decoration:none">${esc(x.api.url.replace(/^https?:\/\//, "").slice(0, 52))}</a></div>` : ""}</td>
