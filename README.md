@@ -18,7 +18,7 @@ Dashboard: https://biocomputingup.github.io/BioComp_resource_monitor/ ·
 
 - Websites: each is classified as up, challenged (a bot check) or down.
 - APIs: an API is up only if it answers with JSON containing a known record. Any other answer,
-  such as the web app's HTML page, is shown as wrong payload, separately from down.
+  such as the web app's HTML page, is shown as wrong data, separately from down.
 - Code activity of each resource's GitHub repo.
 
 The list is in [`monitor/resources.yml`](monitor/resources.yml). How it works, the definitions

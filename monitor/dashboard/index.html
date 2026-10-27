@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BioComp Resource Monitor</title>
-<meta name="description" content="Uptime of the BioComputing UP websites and backend APIs (DisProt, MobiDB, RepeatsDB, PED, RING, APICURON…), alongside the DOME ecosystem.">
+<meta name="description" content="Live status of the BioComputing UP websites and APIs.">
 <style>
   :root {
     color-scheme: light;
@@ -99,6 +99,7 @@
   }
   th[data-sort] { cursor: pointer; user-select: none; }
   th[data-sort]:hover { color: var(--text-primary); }
+  th[data-t] { cursor: help; text-decoration: underline dotted; text-underline-offset: 3px; }
   th .arrow { opacity: 0.35; }
   th[aria-sort] .arrow { opacity: 1; }
   tbody tr:hover { background: color-mix(in srgb, var(--text-primary) 4%, transparent); }
@@ -122,7 +123,6 @@
   .f-quiet .dot { background: var(--critical); }
   .f-unknown .dot { background: var(--nodata); }
   .meta .state { font-size: inherit; gap: 6px; }
-  td.commit { min-width: 220px; }
 
   .flag {
     display: inline-block; margin-left: 6px; padding: 1px 6px; border-radius: 5px; font-size: 0.6875rem;
@@ -144,7 +144,7 @@
   #tip {
     position: fixed; z-index: 50; pointer-events: none; opacity: 0; transition: opacity 0.1s;
     background: var(--text-primary); color: var(--surface-1); font-size: 0.75rem; line-height: 1.45;
-    padding: 6px 9px; border-radius: 6px; white-space: nowrap; font-variant-numeric: tabular-nums;
+    padding: 6px 9px; border-radius: 6px; max-width: 300px; font-variant-numeric: tabular-nums;
   }
 
   footer { color: var(--text-secondary); font-size: 0.8125rem; margin-top: 28px; }
@@ -172,13 +172,6 @@
     text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); padding: 7px 10px;
   }
   tr.grp td .src { text-transform: none; letter-spacing: 0; font-weight: 500; color: var(--text-muted); margin-left: 8px; }
-  .sources { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; margin-top: 16px; }
-  .source { background: var(--surface-1); border: 1px solid var(--grid); border-radius: 12px; padding: 12px 14px; font-size: 0.8125rem; color: var(--text-secondary); }
-  .source .hd { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 6px; }
-  .source .hd b { color: var(--text-primary); font-size: 0.875rem; }
-  .source .row { display: flex; flex-wrap: wrap; gap: 4px 16px; }
-  .source .row b { color: var(--text-primary); font-variant-numeric: tabular-nums; }
-  .tag { font-size: 0.6875rem; color: var(--text-muted); border: 1px solid var(--grid); border-radius: 5px; padding: 0 5px; margin-left: 6px; white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -186,8 +179,8 @@
   <header>
     <div>
       <h1>BioComputing UP resource monitor</h1>
-      <p class="sub">Is each website up, and does its backend API return the data it should? Checked every
-        20 minutes, with the DOME ecosystem alongside.</p>
+      <p class="sub">Checks every 20 minutes that each website is up and each API returns the right data.</p>
+      <div class="meta" id="meta"></div>
     </div>
     <div style="display:flex;gap:8px;align-items:center">
       <span id="health" class="pill live"><span class="dot"></span><span id="health-text">loading…</span></span>
@@ -195,7 +188,6 @@
     </div>
   </header>
 
-  <div class="sources" id="sources"></div>
   <div id="banner" style="margin-top:16px"></div>
   <div class="tiles" id="tiles"></div>
 
@@ -213,48 +205,36 @@
 
   <div class="panel">
     <h2>Websites and APIs</h2>
-    <p class="note">An API is <b>up</b> only when it answers with JSON containing the expected record (for
-      example DisProt’s <code>DP00003</code>). <b>Wrong payload</b> means the server answered, but not with that
-      data: often the web app’s HTML page instead of the API.</p>
+    <p class="note">An API is up when it returns the expected data. Wrong data means it answered with
+      something else, often a web page.</p>
     <div class="controls">
       <input type="search" id="q" placeholder="Search resources…" aria-label="Search resources">
       <select id="f-group" aria-label="Filter by group"><option value="">All groups</option></select>
       <select id="f-state" aria-label="Filter by state">
         <option value="">All states</option>
-        <option value="problem">Down or wrong payload</option>
+        <option value="problem">Down or wrong data</option>
         <option value="api">Has an API</option>
       </select>
     </div>
     <div class="legend">
-      <span><i style="background:var(--good)"></i> 100% up that day</span>
-      <span><i style="background:var(--warning)"></i> partial (≥50%)</span>
-      <span><i style="background:var(--critical)"></i> mostly down (&lt;50%)</span>
-      <span><i style="background:var(--nodata)"></i> no data recorded</span>
-      <span style="color:var(--text-muted)">— hover any bar for that day’s figures</span>
+      <span>One bar per day:</span>
+      <span><i style="background:var(--good)"></i> up all day</span>
+      <span><i style="background:var(--warning)"></i> partly down</span>
+      <span><i style="background:var(--critical)"></i> mostly down</span>
+      <span><i style="background:var(--nodata)"></i> no data</span>
+      <span style="color:var(--text-muted)">Hover a bar or a column name for details.</span>
     </div>
     <div class="tscroll"><table>
       <thead><tr>
         <th>Resource</th>
-        <th>🌐 Website · 30 days</th>
-        <th>🔌 API · 30 days</th>
-        <th class="num hide-sm">p95</th>
-        <th class="hide-sm">Code</th>
+        <th data-t="Up: the site answers. Challenged: a bot check answered instead. Down: no answer or a server error. The % is uptime over the last 30 days.">🌐 Website · 30 days</th>
+        <th data-t="Up: the API returns the expected data. Wrong data: it answers, but with something else. Down: no answer or an error. No API: none is checked for this resource.">🔌 API · 30 days</th>
+        <th class="num hide-sm" data-t="Response time: 95% of website checks in the last 30 days were faster than this.">Speed</th>
+        <th class="hide-sm" data-t="When the resource's GitHub repo was last pushed to. Active: within 7 days. Recent: within 30 days. Quiet: longer ago. No access: the repo is private.">Code</th>
       </tr></thead>
       <tbody id="rows"></tbody>
     </table></div>
     <p class="note" id="count" style="margin:14px 0 12px"></p>
-  </div>
-
-  <div class="panel" id="activity-panel" hidden>
-    <h2>Repository activity</h2>
-    <p class="note">Last push to any branch, and the latest commit on the default branch.
-      Active = pushed within 7 days · recent = within 30 days · quiet = longer.</p>
-    <div class="tscroll"><table>
-      <thead><tr>
-        <th>Resource</th><th>Last push</th><th class="hide-sm">Repository</th><th>Latest commit</th>
-      </tr></thead>
-      <tbody id="activity"></tbody>
-    </table></div>
   </div>
 
   <footer id="foot"></footer>
@@ -266,24 +246,16 @@ const $ = (s) => document.querySelector(s);
 const tip = $("#tip");
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const pct = (x) => x === null || x === undefined ? "—" : (x * 100).toFixed(2) + "%";
-const STATES = { up: "up", challenged: "challenged", down: "down", payload: "wrong payload", unknown: "never checked" };
+const STATES = { up: "up", challenged: "challenged", down: "down", payload: "wrong data", unknown: "never checked" };
 const REPO_URL = "https://github.com/BioComputingUP/BioComp_resource_monitor";
 
-// Two trackers on one page. This one is published beside this page; the DOME tracker is read from
-// its data branch (raw.githubusercontent.com allows cross-origin reads). If the DOME tracker
-// cannot be read, the page still works and says so.
-const SOURCES = [
-  { key: "bup", label: "BioComputing UP", base: "", required: true,
-    repo: REPO_URL, branch: "monitor-data", page: "./" },
-  { key: "dome", label: "DOME ecosystem", group: "DOME ecosystem",
-    base: "https://raw.githubusercontent.com/BioComputingUP/dome-tracking/tracker-data/",
-    repo: "https://github.com/BioComputingUP/dome-tracking", branch: "tracker-data",
-    page: "https://biocomputingup.github.io/dome-tracking/" },
-];
-const GROUP_ORDER = ["Databases", "Tools", "Lab & registries", "DOME ecosystem", "Legacy tools"];
+const GROUP_ORDER = ["Databases", "Tools", "Lab & registries", "Legacy tools"];
+// Shown after a group's name. Legacy tools are the ones still served from the old lab server.
+const GROUP_NOTE = { "Legacy tools": "old.protein.bio.unipd.it" };
+const groupLabel = (g) => GROUP_NOTE[g] ? `${g} (${GROUP_NOTE[g]})` : g;
 
-let LOADED = [];      // [{src, summary, history, error}]
-let RESOURCES = [];   // one entry per resource: {src, group, web, api, activity}
+let SUMMARY = null, HISTORY = null;
+let RESOURCES = [];   // one entry per resource: {group, web, api, activity}
 
 function ago(min) {
   if (min === null || min === undefined) return "never";
@@ -341,26 +313,18 @@ function stripHTML(history, id) {
 }
 
 function targetCell(r, history) {
-  if (!r) return `<span class="none">no API checked</span>`;
+  if (!r) return `<span class="none">no API</span>`;
   return `<div class="tcell"><div class="top">${stateLabel(r)}<span class="v">${pct(r.windows["30d"].uptime)}</span></div>
     ${stripHTML(history, r.id)}</div>`;
 }
 
-// Fold each summary's targets into one entry per resource: the website, and its API if any.
+// Fold the targets into one entry per resource: the website, and its API if any.
 function buildResources() {
-  const out = [];
-  for (const L of LOADED) {
-    if (!L.summary) continue;
-    const apis = {};
-    for (const r of L.summary.resources) if (r.kind === "api") apis[r.parent] = r;
-    const repos = (L.summary.activity && L.summary.activity.repos) || {};
-    for (const r of L.summary.resources) {
-      if (r.kind === "api") continue;
-      out.push({ src: L.src, history: L.history, group: L.src.group || r.group || "Other",
-                 web: r, api: apis[r.id] || null, activity: repos[r.id] || null });
-    }
-  }
-  return out;
+  const apis = {};
+  for (const r of SUMMARY.resources) if (r.kind === "api") apis[r.parent] = r;
+  const repos = (SUMMARY.activity && SUMMARY.activity.repos) || {};
+  return SUMMARY.resources.filter((r) => r.kind !== "api").map((r) =>
+    ({ group: r.group || "Other", web: r, api: apis[r.id] || null, activity: repos[r.id] || null }));
 }
 
 function render() {
@@ -377,93 +341,51 @@ function render() {
     .sort((a, b) => (GROUP_ORDER.indexOf(a) + 1 || 99) - (GROUP_ORDER.indexOf(b) + 1 || 99));
   $("#rows").innerHTML = groups.map((g) => {
     const inGroup = rows.filter((x) => x.group === g).sort((a, b) => a.web.name.localeCompare(b.web.name));
-    const src = inGroup[0].src;
-    const head = `<tr class="grp"><td colspan="5">${esc(g)}<span class="src">${inGroup.length}
-      ${src.key === "dome" ? `· from the <a href="${esc(src.page)}">DOME tracker</a>` : ""}</span></td></tr>`;
+    const note = GROUP_NOTE[g] ? `<span class="src">(${esc(GROUP_NOTE[g])})</span>` : "";
+    const head = `<tr class="grp"><td colspan="5">${esc(g)}${note}<span class="src">${inGroup.length}</span></td></tr>`;
     return head + inGroup.map((x) => {
       const w = x.web, a = x.activity, f = a ? freshness(a.pushed_at) : null;
       return `<tr>
         <td class="name"><a href="${esc(w.url)}" rel="noopener">${esc(w.name)}</a>${w.url_review ? '<span class="flag">check URL</span>' : ""}${w.tls_warning
           ? `<span class="flag" title="${esc(w.tls_warning)}">TLS chain</span>` : ""}
           ${x.api ? `<div class="hide-sm"><a class="node" href="${esc(x.api.url)}" rel="noopener" style="text-decoration:none">${esc(x.api.url.replace(/^https?:\/\//, "").slice(0, 52))}</a></div>` : ""}</td>
-        <td>${targetCell(w, x.history)}</td>
-        <td>${targetCell(x.api, x.history)}</td>
+        <td>${targetCell(w, HISTORY)}</td>
+        <td>${targetCell(x.api, HISTORY)}</td>
         <td class="num hide-sm">${esc(w.latency_30d.p95 || "—")}</td>
         <td class="hide-sm">${a ? (a.pushed_at
           ? `<span class="state f-${f}" data-t="${esc(a.repo)} · last push ${esc(a.pushed_at)}"><span class="dot"></span>${f}</span>`
-          : `<span class="state f-unknown" data-t="${esc(a.error || "")}"><span class="dot"></span>no access</span>`)
+          : `<span class="state f-unknown" data-t="${esc(a.repo)} is private, so its activity can't be read."><span class="dot"></span>no access</span>`)
           : '<span class="none">—</span>'}</td>
       </tr>`;
     }).join("");
   }).join("");
   const nApi = rows.filter((x) => x.api).length;
-  $("#count").textContent = `Showing ${rows.length} of ${RESOURCES.length} resources (${nApi} with an API checked).`;
-}
-
-function renderSources() {
-  $("#sources").innerHTML = LOADED.map((L) => {
-    if (!L.summary) {
-      return `<div class="source"><div class="hd"><b>${esc(L.src.label)}</b>
-        <span class="pill stale"><span class="dot"></span>not loaded</span></div>
-        Could not read its results (${esc(L.error)}). <a href="${esc(L.src.page)}">Open its own dashboard ↗</a></div>`;
-    }
-    const m = L.summary.monitoring, h = health(m);
-    const nApi = L.summary.api_count || 0;
-    return `<div class="source"><div class="hd"><b>${esc(L.src.label)}</b>
-      <span class="pill ${h.stale ? "stale" : "live"}"><span class="dot"></span>${h.stale ? "STALE" : "active"}</span></div>
-      <div class="row">
-        <span>Last check <b>${ago(h.ageMin)}</b></span>
-        <span class="state f-${h.cadence}" data-t="Green at 75% of the target or more, amber at 33%, red below.">
-          <span class="dot"></span><b>${h.runs24}</b>&nbsp;of ${h.expected24} runs in 24 h</span>
-        <span><b>${L.summary.resource_count}</b> sites${nApi ? ` · <b>${nApi}</b> APIs` : ""}</span>
-        <a href="${esc(m.workflow_url)}">runs ↗</a>
-        <a href="${esc(L.src.repo)}/blob/${esc(L.src.branch)}/STATUS.md">STATUS.md ↗</a>
-      </div></div>`;
-  }).join("");
-}
-
-function renderActivity() {
-  const entries = RESOURCES.filter((x) => x.activity);
-  if (!entries.length) return;
-  $("#activity-panel").hidden = false;
-  $("#activity").innerHTML = entries.map((x) => {
-    const s = x.activity, f = freshness(s.pushed_at), c = s.last_commit || {};
-    const sha = (c.sha || "").slice(0, 7);
-    const repoUrl = s.html_url || "https://github.com/" + s.repo;
-    return `<tr>
-      <td class="name"><a href="${esc(repoUrl)}" rel="noopener">${esc(x.web.name)}</a>${x.src.key === "dome" ? '<span class="tag">DOME</span>' : ""}${s.error
-        ? `<span class="flag" title="${esc(s.error)}">${s.pushed_at ? "API error · last known" : "no access"}</span>` : ""}</td>
-      <td>${s.pushed_at ? `<span class="state f-${f}"><span class="dot"></span>${f} · ${ago(minsSince(s.pushed_at))}</span>`
-        : `<span class="state f-unknown" title="${esc(s.error || "")}"><span class="dot"></span>no data</span>`}</td>
-      <td class="node hide-sm"><a href="${esc(repoUrl)}" rel="noopener">${esc(s.repo)}</a>${s.default_branch ? ` <code>${esc(s.default_branch)}</code>` : ""}</td>
-      <td class="commit">${sha ? `<a href="${esc(c.url)}" rel="noopener"><code>${esc(sha)}</code></a> ${esc(c.message)}
-        <span class="node">— ${esc(c.author || "?")}, ${esc((c.date || "").slice(0, 10))}</span>` : "—"}</td>
-    </tr>`;
-  }).join("");
+  $("#count").textContent = `Showing ${rows.length} of ${RESOURCES.length} resources, ${nApi} with an API.`;
 }
 
 function boot() {
-  const own = LOADED[0], m = own.summary.monitoring, h = health(m);
+  const m = SUMMARY.monitoring, h = health(m);
   RESOURCES = buildResources();
 
   $("#health").className = "pill " + (h.stale ? "stale" : "live");
   $("#health-text").textContent = h.stale ? "Monitoring STALE" : "Monitoring active";
   if (h.stale) {
     $("#banner").innerHTML = `<div class="banner"><b>Monitoring has stopped.</b> The last check was
-      ${ago(h.ageMin)}. Check the cron-job.org job and its token, and whether
-      <a href="${esc(m.workflow_url)}">monitor-check</a> is still enabled in the Actions tab (GitHub disables
-      schedules after 60 days of no activity). Figures below are as of the last successful run.</div>`;
+      ${ago(h.ageMin)}. Check the cron-job.org job and its token. The figures below are from the last run.</div>`;
   }
-  renderSources();
+  $("#meta").innerHTML = `<span>Last check <b>${ago(h.ageMin)}</b></span>
+    <span class="state f-${h.cadence}" data-t="The target is one run every 20 minutes, ${h.expected24} a day.">
+      <span class="dot"></span><b>${h.runs24}</b>&nbsp;of ${h.expected24} runs in the last 24 h</span>
+    <a href="${esc(m.workflow_url)}">Runs ↗</a>`;
 
   const webs = RESOURCES.map((x) => x.web), apis = RESOURCES.filter((x) => x.api).map((x) => x.api);
   const count = (list, s) => list.filter((r) => viewState(r) === s).length;
   const down = count(webs, "down") + count(apis, "down");
   $("#tiles").innerHTML = [
-    [`${count(webs, "up") + count(webs, "challenged")}/${webs.length}`, "websites responding", "var(--good)"],
-    [`${count(apis, "up")}/${apis.length}`, "APIs returning the right data", "var(--good)"],
-    [count(apis, "payload"), "APIs with the wrong payload", "var(--serious)"],
-    [down, "down (websites + APIs)", "var(--critical)"],
+    [`${count(webs, "up") + count(webs, "challenged")}/${webs.length}`, "websites up", "var(--good)"],
+    [`${count(apis, "up")}/${apis.length}`, "APIs up", "var(--good)"],
+    [count(apis, "payload"), "APIs with wrong data", "var(--serious)"],
+    [down, "down", "var(--critical)"],
     [count(webs, "challenged"), "behind a bot check", "var(--warning)"],
   ].map(([n, label, color]) => `<div class="tile"><div class="n">${n}</div>
     <div class="l"><span class="dot" style="background:${color}"></span>${label}</div></div>`).join("");
@@ -473,11 +395,9 @@ function boot() {
     .sort((a, b) => (a.r.since || "").localeCompare(b.r.since || ""));
   if (att.length) {
     $("#attention-panel").hidden = false;
-    $("#attention-note").textContent =
-      `${att.length} website${att.length === 1 ? "" : "s"} or API${att.length === 1 ? "" : "s"} need attention. `
-      + `"check URL" means the address returns 404/410, so it has moved or been retired.`;
+    $("#attention-note").textContent = `"Check URL" means the page is gone (404), so the address needs updating.`;
     $("#attention").innerHTML = att.map(({ r, x }) => `<tr>
-      <td class="name"><a href="${esc(r.url)}" rel="noopener">${esc(r.name)}</a>${x.src.key === "dome" ? '<span class="tag">DOME</span>' : ""}${r.url_review ? '<span class="flag">check URL</span>' : ""}</td>
+      <td class="name"><a href="${esc(r.url)}" rel="noopener">${esc(r.name)}</a>${r.url_review ? '<span class="flag">check URL</span>' : ""}</td>
       <td>${stateLabel(r)}</td>
       <td><code>${esc(r.reason || "—")}</code></td>
       <td class="node hide-sm">${esc(r.since || "—")}</td>
@@ -487,15 +407,14 @@ function boot() {
 
   const groups = [...new Set(RESOURCES.map((x) => x.group))]
     .sort((a, b) => (GROUP_ORDER.indexOf(a) + 1 || 99) - (GROUP_ORDER.indexOf(b) + 1 || 99));
-  $("#f-group").innerHTML += groups.map((g) => `<option value="${esc(g)}">${esc(g)}</option>`).join("");
+  $("#f-group").innerHTML += groups.map((g) => `<option value="${esc(g)}">${esc(groupLabel(g))}</option>`).join("");
 
-  $("#foot").innerHTML = `Generated <b>${esc(own.summary.generated)}</b> and rebuilt after every check ·
+  $("#foot").innerHTML = `Updated <b>${esc(SUMMARY.generated)}</b> ·
     <a href="${REPO_URL}/blob/monitor-data/STATUS.md">STATUS.md</a> ·
     <a href="summary.json">summary.json</a> ·
-    <a href="${REPO_URL}/tree/main/monitor">code &amp; definitions</a>.
-    Uptime = (up + challenged) ÷ recorded checks. Checks run from GitHub-hosted runners, one vantage point.`;
+    <a href="${REPO_URL}/tree/main/monitor">How it works</a>.
+    Checks run from GitHub's servers.`;
 
-  renderActivity();
   render();
 }
 
@@ -523,14 +442,9 @@ const getJSON = (url) => fetch(url, { cache: "no-store" }).then((r) => {
   return r.json();
 });
 
-Promise.all(SOURCES.map((src) => Promise.all([
-  getJSON(src.base + "summary.json"),
-  getJSON(src.base + "history.json").catch(() => null),
-]).then(([summary, history]) => ({ src, summary, history }))
-  .catch((err) => ({ src, summary: null, history: null, error: err.message }))))
-.then((loaded) => {
-  LOADED = loaded;
-  if (!loaded[0].summary) throw new Error(loaded[0].error);
+Promise.all([getJSON("summary.json"), getJSON("history.json").catch(() => null)])
+.then(([summary, history]) => {
+  SUMMARY = summary; HISTORY = history;
   boot();
 }).catch((err) => {
   $("#health").className = "pill stale";

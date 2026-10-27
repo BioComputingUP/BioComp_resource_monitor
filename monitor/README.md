@@ -68,7 +68,7 @@ An API client needs a 2xx JSON answer with the right content, so the rules are s
 | `down` | `bad_payload:too_large` | The body is over 5 MB. Choose a smaller endpoint |
 | `down` | `http_4xx`, `http_5xx`, `challenge:*`, timeouts, DNS, connection errors | Same as for websites, except that any 4xx or bot challenge counts as down |
 
-The dashboard shows `bad_payload:*` as **wrong payload** (orange), separate from plain **down**
+The dashboard shows `bad_payload:*` as **wrong data** (orange), separate from plain **down**
 (red). That way "answering, but broken" is not mistaken for "unreachable".
 
 `api.expect` in `resources.yml`:
