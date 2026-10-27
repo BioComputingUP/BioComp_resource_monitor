@@ -2,11 +2,11 @@ from datetime import datetime, timedelta, timezone
 
 import pytest
 
-from common import iso
+from common import iso, load_resources
 from notify import GitHub, load_notify_config, marker, parse_marker, plan_actions
 
 NOW = datetime(2026, 9, 25, 12, 0, tzinfo=timezone.utc)
-CFG = {"mention": ["gavinf97"], "assign": ["gavinf97"], "min_consecutive_down": 2}
+CFG = {"people": ["ivanmicetic"], "min_consecutive_down": 2}
 RESOURCES = [
     {"id": "alpha", "name": "Alpha", "url": "https://alpha.example.org"},
     {"id": "beta", "name": "Beta", "url": "https://beta.example.org"},
@@ -23,8 +23,8 @@ def test_one_failed_run_is_not_enough_two_are():
     assert plan_actions(RESOURCES, {"alpha": st("down", 1)}, [], CFG, NOW) == []
     [a] = plan_actions(RESOURCES, {"alpha": st("down", 2)}, [], CFG, NOW)
     assert a["action"] == "open" and a["title"] == "🔴 Alpha is down"
-    assert a["assignees"] == ["gavinf97"]
-    assert "cc @gavinf97" in a["body"] and "`http_502`" in a["body"]
+    assert a["assignees"] == ["ivanmicetic"]
+    assert "cc @ivanmicetic" in a["body"] and "`http_502`" in a["body"]
     assert parse_marker(a["body"]) == ("alpha", "2026-09-25T11:20:00Z")
 
 
@@ -77,9 +77,25 @@ def test_marker_round_trip():
 
 def test_config_block_is_read_with_defaults(tmp_path):
     cfg_file = tmp_path / "resources.yml"
-    cfg_file.write_text("notify:\n  mention: [someone]\nresources: []\n")
+    cfg_file.write_text("notify:\n  people: [someone]\nresources: []\n")
     cfg = load_notify_config(cfg_file)
-    assert cfg["mention"] == ["someone"] and cfg["min_consecutive_down"] == 2 and cfg["assign"] == []
+    assert cfg["people"] == ["someone"] and cfg["min_consecutive_down"] == 2
+
+
+def test_a_resource_can_add_its_own_people_for_its_website_and_api(tmp_path):
+    cfg_file = tmp_path / "resources.yml"
+    cfg_file.write_text("resources:\n- id: nto\n  name: NTO\n  url: https://nto.example.org\n"
+                        "  notify: [gavinf97, ivanmicetic]\n  api: https://nto.example.org/api\n")
+    targets = load_resources(cfg_file)
+    state = {t["id"]: st("down", 2) for t in targets}
+    opened = plan_actions(targets, state, [], CFG, NOW)
+    assert [a["id"] for a in opened] == ["nto", "nto--api"]
+    for a in opened:
+        assert a["assignees"] == ["ivanmicetic", "gavinf97"]
+        assert "cc @ivanmicetic @gavinf97" in a["body"]
+    # other resources get only the global people
+    [a] = plan_actions(RESOURCES, {"alpha": st("down", 2)}, [], CFG, NOW)
+    assert a["assignees"] == ["ivanmicetic"]
 
 
 class FakeResponse:

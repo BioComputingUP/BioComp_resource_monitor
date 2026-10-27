@@ -99,7 +99,7 @@ def test_api_blocks_become_their_own_targets(tmp_path):
     assert web["kind"] == "web" and api["kind"] == "api"
     assert api == {"id": "alpha--api", "name": "Alpha DB API", "url": "https://alpha.example.org/api/1",
                    "kind": "api", "parent": "alpha", "group": "Databases",
-                   "expect": {"field": "id", "equals": "1"}, "check": {"verify_tls": False},
+                   "expect": {"field": "id", "equals": "1"}, "check": {"verify_tls": False}, "notify": None,
                    "enabled": True}
     assert "repo" not in api  # code activity is tracked once, on the website target
     # A disabled resource disables its API too; the shorthand `api: <url>` is accepted.

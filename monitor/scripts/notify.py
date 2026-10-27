@@ -5,11 +5,14 @@ notify.py — open a GitHub issue when a resource goes down, and close it when i
 Runs after check.py has updated state.json. Every run reconciles the current state with the
 open issues labelled `outage`, so it is idempotent and catches up after a failed run:
 
-  down for >= min_consecutive_down runs, no open issue   -> open one (@mention + assign)
+  down for >= min_consecutive_down runs, no open issue   -> open one (@mention + assign its people)
   up or challenged, open issue                           -> comment "back up", close it
   anything else                                          -> nothing
 
 Each issue body carries a hidden marker naming the resource and when it went down.
+
+Who is emailed: everyone in `notify.people` (all resources), plus a resource's own `notify:` list
+(that resource's website and API only).
 
 Issues must be opened by github-actions[bot] (the workflow's GITHUB_TOKEN), never with your own
 token: GitHub does not notify you about your own actions, so no email would arrive.
@@ -45,13 +48,19 @@ TIMEOUT = 20
 LABEL = "outage"
 LABEL_COLOR = "d73a4a"
 MARKER = re.compile(r"<!-- biocomp-monitor:id=(\S+) since=(\S*) -->")
-DEFAULTS = {"mention": [], "assign": [], "min_consecutive_down": 2}
+DEFAULTS = {"people": [], "min_consecutive_down": 2}
+MAX_ASSIGNEES = 10  # GitHub's limit per issue
 
 
 def load_notify_config(config: Path) -> dict:
     with open(config, encoding="utf-8") as fh:
         doc = yaml.safe_load(fh) or {}
     return {**DEFAULTS, **(doc.get("notify") or {})}
+
+
+def people_for(res: dict, cfg: dict) -> list[str]:
+    """Everyone to @mention and assign for this target: the global people, then the resource's own."""
+    return list(dict.fromkeys([*(cfg.get("people") or []), *(res.get("notify") or [])]))
 
 
 def marker(rid: str, since: str | None) -> str:
@@ -97,8 +106,8 @@ def issue_body(res: dict, st: dict, cfg: dict, simulated: bool) -> str:
         f"This issue closes itself, with a comment, when {name} responds again. "
         f"[Dashboard]({DASHBOARD_URL}) · [STATUS.md]({DATA_BRANCH_URL}/STATUS.md)",
     ]
-    if cfg["mention"]:
-        lines += ["", "cc " + " ".join(f"@{u}" for u in cfg["mention"])]
+    if people_for(res, cfg):
+        lines += ["", "cc " + " ".join(f"@{u}" for u in people_for(res, cfg))]
     lines += ["", marker(res["id"], st.get("since"))]
     return "\n".join(lines)
 
@@ -127,7 +136,7 @@ def plan_actions(resources: list[dict], state: dict, open_issues: list[dict], cf
                 actions.append({"action": "open", "id": rid,
                                 "title": f"{'[test] ' if simulate == rid else ''}🔴 {name} is down",
                                 "body": issue_body(res, st, cfg, simulate == rid),
-                                "assignees": list(cfg["assign"])})
+                                "assignees": people_for(res, cfg)[:MAX_ASSIGNEES]})
             continue
 
         up_since = parse_iso(st["since"]) if st.get("since") else now

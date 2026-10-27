@@ -3,7 +3,7 @@
 The code behind the BioComp resource monitor. It is adapted from
 [BioComputingUP/dome-tracking](https://github.com/BioComputingUP/dome-tracking) (itself adapted
 from the [ECD uptime tracker](https://github.com/gavinf97/ECD/tree/main/uptime)), and adds
-**backend API checks**: an API counts as up only when it returns the expected JSON.
+API checks: an API counts as up only when it returns the expected JSON.
 
 ## 1. Where the results are deposited
 
@@ -118,7 +118,13 @@ triggered in two ways:
 
 Extra runs do no harm. Coverage is capped at 100%, the concurrency group stops runs from
 overlapping, and at most 7 runs an hour stays under the GitHub Pages limit of 10 builds an
-hour. Setup steps are in the [main README](../README.md#finish-setup-about-10-minutes).
+hour.
+
+The external trigger is a cron-job.org job: `POST https://api.github.com/repos/BioComputingUP/BioComp_resource_monitor/actions/workflows/monitor-check.yml/dispatches`
+with body `{"ref":"main"}` and headers `Authorization: Bearer <token>`,
+`Accept: application/vnd.github+json` and `X-GitHub-Api-Version: 2022-11-28`. The token is a
+fine-grained token on BioComputingUP with Actions: Read and write only. A test run answers 204.
+When the token expires, runs fall back to the GitHub crons and runs-in-24 h turns amber.
 
 ### Outage alerts
 
@@ -127,7 +133,7 @@ open issues labelled `outage`:
 
 | Situation | Action |
 |---|---|
-| Down for `min_consecutive_down` runs in a row (2), with no open issue | Open **🔴 &lt;name&gt; is down** (for example **🔴 MobiDB API is down**), and @mention and assign the users in `notify:` in [`resources.yml`](resources.yml) |
+| Down for `min_consecutive_down` runs in a row (2), with no open issue | Open **🔴 &lt;name&gt; is down** (for example **🔴 MobiDB API is down**), and @mention and assign `notify.people` plus the resource's own `notify:` list in [`resources.yml`](resources.yml) |
 | Back up, with an open issue | Comment **🟢 back up** with the outage duration, and close the issue |
 | Still down, with an issue already open | Nothing |
 
@@ -148,6 +154,11 @@ expected:
 python monitor/scripts/check.py --dry-run --only mobidb--api
 ```
 `enabled: false` pauses a resource and its API, and keeps their history.
+
+**Email someone about outages.** Add their GitHub username to `notify.people` in
+[`resources.yml`](resources.yml) for every resource, or to a resource's own `notify:` list for
+that resource only (its website and API). They must be a BioComputingUP member to be assigned;
+the @mention emails them either way.
 
 **Read private repositories.** The built-in token reads only public repos. `mobidb-ui`,
 `ring-ui` and `bup-ui` are private, so they show **no access** until a read-only fine-grained

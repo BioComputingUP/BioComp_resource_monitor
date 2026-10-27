@@ -10,15 +10,17 @@
 #                         equals: the value at field, compared as text
 #                         min: the number at field (or its length, for a list/object/text) is at least this
 #                         min_items: the whole JSON body is a list or object of at least this many items
+#   notify              GitHub usernames also emailed when this resource (website or API) is down
 #
 # The DOME resources are tracked by BioComputingUP/dome-tracking; the dashboard shows them too,
 # read from that repo's data branch, so they are not repeated here.
 
 # Outage issues (scripts/notify.py): opened after this many failed runs in a row, closed when
-# the resource is back up. Mentioned and assigned users are emailed about both.
+# the resource is back up. The people here are @mentioned and assigned on every outage issue, so
+# they are emailed about all resources. Ivan Micetic is the BioComp admin. To email someone about
+# one resource only, add `notify: [username]` to that resource instead.
 notify:
-  mention: [gavinf97]
-  assign: [gavinf97]
+  people: [ivanmicetic]
   min_consecutive_down: 2
 
 resources:
@@ -133,6 +135,7 @@ resources:
   group: Lab & registries
   url: https://nto-registry.org/
   repo: BioComputingUP/nto-registry
+  notify: [gavinf97]
   enabled: true
 
 # --- Legacy tools on old.protein.bio.unipd.it (one host; it sometimes resets connections) ---

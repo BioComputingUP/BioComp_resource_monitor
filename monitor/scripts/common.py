@@ -99,7 +99,8 @@ def api_target(res: dict) -> dict:
     check = {k: v for k, v in (res.get("check") or {}).items() if k == "verify_tls"}
     return {"id": res["id"] + API_SUFFIX, "name": f"{res.get('name', res['id'])} API",
             "url": api["url"], "kind": "api", "parent": res["id"], "group": res.get("group"),
-            "expect": api.get("expect") or {}, "check": check, "enabled": res.get("enabled", True)}
+            "expect": api.get("expect") or {}, "check": check, "notify": res.get("notify"),
+            "enabled": res.get("enabled", True)}
 
 
 def load_resources(config: Path, enabled_only: bool = True) -> list[dict]:
