@@ -249,7 +249,7 @@ const pct = (x) => x === null || x === undefined ? "—" : (x * 100).toFixed(2) 
 const STATES = { up: "up", challenged: "challenged", down: "down", payload: "wrong data", unknown: "never checked" };
 const REPO_URL = "https://github.com/BioComputingUP/BioComp_resource_monitor";
 
-const GROUP_ORDER = ["Databases", "Tools", "Lab & registries", "Legacy tools"];
+const GROUP_ORDER = ["Databases", "Web tools", "Lab & registries", "DOME ecosystem", "Legacy tools"];
 // Shown after a group's name. Legacy tools are the ones still served from the old lab server.
 const GROUP_NOTE = { "Legacy tools": "old.protein.bio.unipd.it" };
 const groupLabel = (g) => GROUP_NOTE[g] ? `${g} (${GROUP_NOTE[g]})` : g;

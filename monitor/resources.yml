@@ -98,36 +98,36 @@ resources:
   url: https://vhldb.org/
   enabled: true
 
-# --- Tools and web servers ---------------------------------------------------
+# --- Web tools ---------------------------------------------------------------
 - id: ring
   name: RING
-  group: Tools
+  group: Web tools
   url: https://ring.biocomputingup.it/
   repo: BioComputingUP/ring-ui
   enabled: true
 - id: fuzdrop
   name: FuzDrop
-  group: Tools
+  group: Web tools
   url: https://fuzdrop.bio.unipd.it/
   enabled: true
 - id: fuzpred
   name: FuzPred
-  group: Tools
+  group: Web tools
   url: https://fuzpred.bio.unipd.it/predictor
   enabled: true
 - id: inga
   name: INGA
-  group: Tools
+  group: Web tools
   url: https://inga.bio.unipd.it/
   enabled: true
 - id: bluues-bup
   name: BLUUES
-  group: Tools
+  group: Web tools
   url: https://bluues.biocomputingup.it/
   enabled: true
 - id: pasta
   name: PASTA
-  group: Tools
+  group: Web tools
   url: https://pasta.biocomputingup.it/
   enabled: true
 
@@ -138,17 +138,48 @@ resources:
   url: https://biocomputingup.it/
   repo: BioComputingUP/bup-ui
   enabled: true
-- id: dome
-  name: DOME
-  group: Lab & registries
-  url: https://dome-ml.org/
-  enabled: true
 - id: nto-registry
   name: NTO Registry
   group: Lab & registries
   url: https://nto-registry.org/
   repo: BioComputingUP/nto-registry
   notify: [gavinf97]
+  enabled: true
+
+# --- DOME ecosystem (also tracked by BioComputingUP/dome-tracking) -------------
+- id: dome-ml
+  name: DOME-ML website
+  group: DOME ecosystem
+  url: https://dome-ml.org/
+  repo: BioComputingUP/dome-ml-ui
+  enabled: true
+- id: dome-registry
+  name: DOME Registry
+  group: DOME ecosystem
+  url: https://registry.dome-ml.org/
+  repo: BioComputingUP/dome-registry
+  api:
+    url: https://registry.dome-ml.org/api/review?skip=0&limit=1
+    expect: {min_items: 1, field: 0.publication.title}
+  enabled: true
+- id: dome-copilot
+  name: DOME Copilot
+  group: DOME ecosystem
+  url: https://dome-copilot.ifca.es/
+  repo: IFCA-Advanced-Computing/dome-copilot
+  enabled: true
+  # The server sends an incomplete TLS chain: recorded as up with a tls_warning until it is fixed.
+- id: osai
+  name: OSAI
+  group: DOME ecosystem
+  url: https://osai.dome-ml.org/
+  repo: BioComputingUP/dome-ml-osai-ui
+  enabled: true
+- id: dome-observatory
+  name: DOME Observatory
+  group: DOME ecosystem
+  url: https://observatory.dome-ml.org/
+  repo: BioComputingUP/dome-ml-observatory
   enabled: true
 
 # --- Legacy tools on old.protein.bio.unipd.it (one host; it sometimes resets connections) ---
