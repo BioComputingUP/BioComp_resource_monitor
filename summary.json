@@ -1,11 +1,11 @@
 {
- "generated": "2026-10-27T23:59:51Z",
+ "generated": "2026-10-28T23:59:46Z",
  "interval_minutes": 20,
  "monitoring": {
-  "last_run": "2026-10-27T23:59:40Z",
-  "minutes_since_last_run": 0,
-  "runs_total": 14,
-  "runs_last_24h": 14,
+  "last_run": "2026-10-28T23:58:51Z",
+  "minutes_since_last_run": 1,
+  "runs_total": 32,
+  "runs_last_24h": 18,
   "expected_runs_24h": 72,
   "recent_runs": [
    "2026-10-27T09:19:14Z",
@@ -21,7 +21,25 @@
    "2026-10-27T20:17:18Z",
    "2026-10-27T20:39:02Z",
    "2026-10-27T20:48:31Z",
-   "2026-10-27T23:59:40Z"
+   "2026-10-27T23:59:40Z",
+   "2026-10-28T00:07:29Z",
+   "2026-10-28T00:28:05Z",
+   "2026-10-28T00:34:11Z",
+   "2026-10-28T06:16:16Z",
+   "2026-10-28T06:25:23Z",
+   "2026-10-28T06:49:06Z",
+   "2026-10-28T06:55:59Z",
+   "2026-10-28T13:30:52Z",
+   "2026-10-28T13:38:48Z",
+   "2026-10-28T13:58:10Z",
+   "2026-10-28T14:08:32Z",
+   "2026-10-28T19:06:11Z",
+   "2026-10-28T19:11:04Z",
+   "2026-10-28T19:29:24Z",
+   "2026-10-28T19:40:36Z",
+   "2026-10-28T23:30:43Z",
+   "2026-10-28T23:42:05Z",
+   "2026-10-28T23:58:51Z"
   ],
   "interval_minutes": 20,
   "stale_after_minutes": 180,
@@ -29,8 +47,8 @@
   "status": "ACTIVE",
   "workflow_url": "https://github.com/BioComputingUP/BioComp_resource_monitor/actions/workflows/monitor-check.yml"
  },
- "runs_total": 14,
- "last_run": "2026-10-27T23:59:40Z",
+ "runs_total": 32,
+ "last_run": "2026-10-28T23:58:51Z",
  "resource_count": 32,
  "api_count": 8,
  "target": 0.99,
@@ -44,8 +62,8 @@
   "resources": 32
  },
  "totals_api": {
-  "up": 8,
-  "down": 0,
+  "up": 7,
+  "down": 1,
   "unknown": 0,
   "bad_payload": 0,
   "apis": 8
@@ -65,43 +83,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:40Z",
+   "last_checked": "2026-10-28T23:58:57Z",
    "final_url": "https://disprot.org/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
@@ -109,7 +127,7 @@
    "latency_30d": {
     "p50": "≤1000 ms",
     "p95": "≤2000 ms",
-    "mean_ms": 888
+    "mean_ms": 951
    }
   },
   {
@@ -126,43 +144,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:41Z",
+   "last_checked": "2026-10-28T23:58:57Z",
    "final_url": "https://disprot.org/api/DP00003",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
@@ -170,7 +188,7 @@
    "latency_30d": {
     "p50": "≤1000 ms",
     "p95": "≤5000 ms",
-    "mean_ms": 1106
+    "mean_ms": 1054
    }
   },
   {
@@ -187,43 +205,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:40Z",
+   "last_checked": "2026-10-28T23:58:57Z",
    "final_url": "https://mobidb.org/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
@@ -231,7 +249,7 @@
    "latency_30d": {
     "p50": "≤1000 ms",
     "p95": "≤2000 ms",
-    "mean_ms": 951
+    "mean_ms": 990
    }
   },
   {
@@ -248,43 +266,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:41Z",
+   "last_checked": "2026-10-28T23:58:57Z",
    "final_url": "https://mobidb.org/api/download?acc=P04637&format=json",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
@@ -292,7 +310,7 @@
    "latency_30d": {
     "p50": "≤1000 ms",
     "p95": "≤5000 ms",
-    "mean_ms": 1185
+    "mean_ms": 1175
    }
   },
   {
@@ -309,43 +327,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:40Z",
+   "last_checked": "2026-10-28T23:58:57Z",
    "final_url": "https://repeatsdb.org/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
@@ -353,7 +371,7 @@
    "latency_30d": {
     "p50": "≤1000 ms",
     "p95": "≤2000 ms",
-    "mean_ms": 891
+    "mean_ms": 968
    }
   },
   {
@@ -370,43 +388,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:46Z",
+   "last_checked": "2026-10-28T23:58:57Z",
    "final_url": "https://repeatsdb.org/api/production/annotations?skip=0&limit=1",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
@@ -414,7 +432,7 @@
    "latency_30d": {
     "p50": "≤2000 ms",
     "p95": "≤10000 ms",
-    "mean_ms": 1832
+    "mean_ms": 1899
    }
   },
   {
@@ -431,43 +449,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:40Z",
+   "last_checked": "2026-10-28T23:58:57Z",
    "final_url": "https://proteinensemble.org/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
@@ -475,7 +493,7 @@
    "latency_30d": {
     "p50": "≤1000 ms",
     "p95": "≤2000 ms",
-    "mean_ms": 799
+    "mean_ms": 905
    }
   },
   {
@@ -486,57 +504,57 @@
    "kind": "api",
    "parent": "ped",
    "group": "Databases",
-   "state": "up",
-   "since": "2026-10-27T09:19:14Z",
-   "reason": "ok",
-   "code": 200,
-   "error": null,
+   "state": "down",
+   "since": "2026-10-28T23:58:51Z",
+   "reason": "read_timeout",
+   "code": null,
+   "error": "HTTPSConnectionPool(host='deposition.proteinensemble.org', port=443): Read timed out. (read timeout=10)",
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:42Z",
-   "final_url": "https://deposition.proteinensemble.org/v1/entries/PED00001",
+   "last_checked": "2026-10-28T23:59:42Z",
+   "final_url": null,
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
-     "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
-     "down": 0,
+     "uptime": 0.9444444444444444,
+     "coverage": 0.25,
+     "checks": 18,
+     "down": 1,
      "challenged": 0
     },
     "7d": {
-     "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
-     "down": 0,
+     "uptime": 0.96875,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
+     "down": 1,
      "challenged": 0
     },
     "30d": {
-     "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
-     "down": 0,
+     "uptime": 0.96875,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
+     "down": 1,
      "challenged": 0
     },
     "90d": {
-     "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
-     "down": 0,
+     "uptime": 0.96875,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
+     "down": 1,
      "challenged": 0
     },
     "365d": {
-     "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
-     "down": 0,
+     "uptime": 0.96875,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
+     "down": 1,
      "challenged": 0
     }
    },
    "latency_30d": {
-    "p50": "≤5000 ms",
+    "p50": "≤2000 ms",
     "p95": "≤5000 ms",
-    "mean_ms": 2077
+    "mean_ms": 1898
    }
   },
   {
@@ -553,43 +571,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:40Z",
+   "last_checked": "2026-10-28T23:58:57Z",
    "final_url": "https://fuzdb.org/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
@@ -597,7 +615,7 @@
    "latency_30d": {
     "p50": "≤1000 ms",
     "p95": "≤2000 ms",
-    "mean_ms": 848
+    "mean_ms": 937
    }
   },
   {
@@ -614,43 +632,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:40Z",
+   "last_checked": "2026-10-28T23:58:57Z",
    "final_url": "https://fuzdb.org/api/entries?entry_id=FC00001",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
@@ -658,7 +676,7 @@
    "latency_30d": {
     "p50": "≤1000 ms",
     "p95": "≤2000 ms",
-    "mean_ms": 861
+    "mean_ms": 948
    }
   },
   {
@@ -675,43 +693,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:40Z",
+   "last_checked": "2026-10-28T23:58:57Z",
    "final_url": "https://apicuron.org/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
@@ -719,7 +737,7 @@
    "latency_30d": {
     "p50": "≤1000 ms",
     "p95": "≤2000 ms",
-    "mean_ms": 883
+    "mean_ms": 947
    }
   },
   {
@@ -736,43 +754,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:41Z",
+   "last_checked": "2026-10-28T23:58:57Z",
    "final_url": "https://apicuron.org/api/home",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
@@ -780,7 +798,7 @@
    "latency_30d": {
     "p50": "≤1000 ms",
     "p95": "≤2000 ms",
-    "mean_ms": 886
+    "mean_ms": 988
    }
   },
   {
@@ -797,43 +815,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:40Z",
+   "last_checked": "2026-10-28T23:58:57Z",
    "final_url": "https://caid.idpcentral.org/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
@@ -841,7 +859,7 @@
    "latency_30d": {
     "p50": "≤1000 ms",
     "p95": "≤2000 ms",
-    "mean_ms": 804
+    "mean_ms": 958
    }
   },
   {
@@ -858,43 +876,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:41Z",
+   "last_checked": "2026-10-28T23:58:57Z",
    "final_url": "https://caid.idpcentral.org/dataset-repository/api/dataset/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
@@ -902,7 +920,7 @@
    "latency_30d": {
     "p50": "≤1000 ms",
     "p95": "≤2000 ms",
-    "mean_ms": 906
+    "mean_ms": 1059
    }
   },
   {
@@ -919,43 +937,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:42Z",
+   "last_checked": "2026-10-28T23:58:58Z",
    "final_url": "https://idpcentral.org/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
@@ -963,7 +981,7 @@
    "latency_30d": {
     "p50": "≤5000 ms",
     "p95": "≤5000 ms",
-    "mean_ms": 2689
+    "mean_ms": 2614
    }
   },
   {
@@ -980,43 +998,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:40Z",
+   "last_checked": "2026-10-28T23:58:52Z",
    "final_url": "http://phytotypedb.bio.unipd.it/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
@@ -1024,7 +1042,7 @@
    "latency_30d": {
     "p50": "≤1000 ms",
     "p95": "≤2000 ms",
-    "mean_ms": 827
+    "mean_ms": 738
    }
   },
   {
@@ -1041,43 +1059,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:40Z",
+   "last_checked": "2026-10-28T23:58:57Z",
    "final_url": "https://vhldb.org/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
@@ -1085,7 +1103,7 @@
    "latency_30d": {
     "p50": "≤1000 ms",
     "p95": "≤5000 ms",
-    "mean_ms": 950
+    "mean_ms": 994
    }
   },
   {
@@ -1102,43 +1120,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:41Z",
+   "last_checked": "2026-10-28T23:58:57Z",
    "final_url": "https://ring.biocomputingup.it/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
@@ -1146,7 +1164,7 @@
    "latency_30d": {
     "p50": "≤1000 ms",
     "p95": "≤2000 ms",
-    "mean_ms": 912
+    "mean_ms": 1021
    }
   },
   {
@@ -1163,51 +1181,51 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:41Z",
+   "last_checked": "2026-10-28T23:58:57Z",
    "final_url": "https://fuzdrop.bio.unipd.it/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
    },
    "latency_30d": {
-    "p50": "≤2000 ms",
+    "p50": "≤1000 ms",
     "p95": "≤2000 ms",
-    "mean_ms": 1021
+    "mean_ms": 1110
    }
   },
   {
@@ -1224,51 +1242,51 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:41Z",
+   "last_checked": "2026-10-28T23:58:57Z",
    "final_url": "https://fuzpred.bio.unipd.it/predictor",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
    },
    "latency_30d": {
-    "p50": "≤2000 ms",
+    "p50": "≤1000 ms",
     "p95": "≤2000 ms",
-    "mean_ms": 1076
+    "mean_ms": 1099
    }
   },
   {
@@ -1285,43 +1303,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:41Z",
+   "last_checked": "2026-10-28T23:58:57Z",
    "final_url": "https://inga.bio.unipd.it/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
@@ -1329,7 +1347,7 @@
    "latency_30d": {
     "p50": "≤1000 ms",
     "p95": "≤2000 ms",
-    "mean_ms": 931
+    "mean_ms": 1070
    }
   },
   {
@@ -1346,51 +1364,51 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T10:59:29Z",
-   "last_checked": "2026-10-27T23:59:40Z",
+   "last_checked": "2026-10-28T23:58:57Z",
    "final_url": "https://bluues.biocomputingup.it/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3,
-     "checks": 12,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3,
-     "checks": 12,
+     "coverage": 0.26785714285714285,
+     "checks": 30,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3,
-     "checks": 12,
+     "coverage": 0.26785714285714285,
+     "checks": 30,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3,
-     "checks": 12,
+     "coverage": 0.26785714285714285,
+     "checks": 30,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3,
-     "checks": 12,
+     "coverage": 0.26785714285714285,
+     "checks": 30,
      "down": 0,
      "challenged": 0
     }
    },
    "latency_30d": {
     "p50": "≤1000 ms",
-    "p95": "≤2000 ms",
-    "mean_ms": 943
+    "p95": "≤5000 ms",
+    "mean_ms": 1079
    }
   },
   {
@@ -1407,43 +1425,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T10:59:29Z",
-   "last_checked": "2026-10-27T23:59:40Z",
+   "last_checked": "2026-10-28T23:58:57Z",
    "final_url": "https://pasta.biocomputingup.it/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3,
-     "checks": 12,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3,
-     "checks": 12,
+     "coverage": 0.26785714285714285,
+     "checks": 30,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3,
-     "checks": 12,
+     "coverage": 0.26785714285714285,
+     "checks": 30,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3,
-     "checks": 12,
+     "coverage": 0.26785714285714285,
+     "checks": 30,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3,
-     "checks": 12,
+     "coverage": 0.26785714285714285,
+     "checks": 30,
      "down": 0,
      "challenged": 0
     }
@@ -1451,7 +1469,7 @@
    "latency_30d": {
     "p50": "≤1000 ms",
     "p95": "≤5000 ms",
-    "mean_ms": 1073
+    "mean_ms": 1087
    }
   },
   {
@@ -1468,43 +1486,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:41Z",
+   "last_checked": "2026-10-28T23:58:53Z",
    "final_url": "https://biocomputingup.it/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
@@ -1512,7 +1530,7 @@
    "latency_30d": {
     "p50": "≤2000 ms",
     "p95": "≤5000 ms",
-    "mean_ms": 1415
+    "mean_ms": 1337
    }
   },
   {
@@ -1529,43 +1547,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:41Z",
+   "last_checked": "2026-10-28T23:58:52Z",
    "final_url": "https://nto-registry.org/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
@@ -1573,7 +1591,7 @@
    "latency_30d": {
     "p50": "≤500 ms",
     "p95": "≤1000 ms",
-    "mean_ms": 442
+    "mean_ms": 485
    }
   },
   {
@@ -1590,51 +1608,51 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T11:00:42Z",
-   "last_checked": "2026-10-27T23:59:41Z",
+   "last_checked": "2026-10-28T23:58:57Z",
    "final_url": "https://dome-ml.org/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     }
    },
    "latency_30d": {
     "p50": "≤1000 ms",
-    "p95": "≤1000 ms",
-    "mean_ms": 736
+    "p95": "≤2000 ms",
+    "mean_ms": 834
    }
   },
   {
@@ -1651,51 +1669,51 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T11:00:42Z",
-   "last_checked": "2026-10-27T23:59:41Z",
+   "last_checked": "2026-10-28T23:58:57Z",
    "final_url": "https://registry.dome-ml.org/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     }
    },
    "latency_30d": {
     "p50": "≤1000 ms",
-    "p95": "≤2000 ms",
-    "mean_ms": 779
+    "p95": "≤5000 ms",
+    "mean_ms": 925
    }
   },
   {
@@ -1712,51 +1730,51 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T11:00:42Z",
-   "last_checked": "2026-10-27T23:59:41Z",
+   "last_checked": "2026-10-28T23:59:02Z",
    "final_url": "https://registry.dome-ml.org/api/review?skip=0&limit=1",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     }
    },
    "latency_30d": {
     "p50": "≤1000 ms",
-    "p95": "≤2000 ms",
-    "mean_ms": 786
+    "p95": "≤5000 ms",
+    "mean_ms": 957
    }
   },
   {
@@ -1773,43 +1791,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T11:00:42Z",
-   "last_checked": "2026-10-27T23:59:41Z",
+   "last_checked": "2026-10-28T23:58:58Z",
    "final_url": "https://dome-copilot.ifca.es/",
    "url_review": false,
    "tls_warning": "HTTPSConnectionPool(host='dome-copilot.ifca.es', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed",
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     }
@@ -1817,7 +1835,7 @@
    "latency_30d": {
     "p50": "≤1000 ms",
     "p95": "≤1000 ms",
-    "mean_ms": 658
+    "mean_ms": 629
    }
   },
   {
@@ -1834,43 +1852,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T11:00:42Z",
-   "last_checked": "2026-10-27T23:59:41Z",
+   "last_checked": "2026-10-28T23:59:02Z",
    "final_url": "https://osai.dome-ml.org/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     }
@@ -1878,7 +1896,7 @@
    "latency_30d": {
     "p50": "≤1000 ms",
     "p95": "≤1000 ms",
-    "mean_ms": 731
+    "mean_ms": 858
    }
   },
   {
@@ -1895,43 +1913,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T11:00:42Z",
-   "last_checked": "2026-10-27T23:59:41Z",
+   "last_checked": "2026-10-28T23:59:02Z",
    "final_url": "https://observatory.dome-ml.org/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.28205128205128205,
-     "checks": 11,
+     "coverage": 0.26126126126126126,
+     "checks": 29,
      "down": 0,
      "challenged": 0
     }
@@ -1939,7 +1957,7 @@
    "latency_30d": {
     "p50": "≤1000 ms",
     "p95": "≤1000 ms",
-    "mean_ms": 710
+    "mean_ms": 817
    }
   },
   {
@@ -1956,43 +1974,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:42Z",
+   "last_checked": "2026-10-28T23:58:58Z",
    "final_url": "http://old.protein.bio.unipd.it/align2/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
@@ -2000,7 +2018,7 @@
    "latency_30d": {
     "p50": "≤2000 ms",
     "p95": "≤2000 ms",
-    "mean_ms": 1603
+    "mean_ms": 1526
    }
   },
   {
@@ -2017,51 +2035,51 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:41Z",
+   "last_checked": "2026-10-28T23:58:58Z",
    "final_url": "http://old.protein.bio.unipd.it/bluues/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
    },
    "latency_30d": {
-    "p50": "≤1000 ms",
-    "p95": "≤2000 ms",
-    "mean_ms": 1174
+    "p50": "≤2000 ms",
+    "p95": "≤5000 ms",
+    "mean_ms": 1390
    }
   },
   {
@@ -2078,51 +2096,51 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:42Z",
+   "last_checked": "2026-10-28T23:58:58Z",
    "final_url": "http://old.protein.bio.unipd.it/fells/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
    },
    "latency_30d": {
     "p50": "≤2000 ms",
-    "p95": "≤2000 ms",
-    "mean_ms": 1549
+    "p95": "≤5000 ms",
+    "mean_ms": 1428
    }
   },
   {
@@ -2139,51 +2157,51 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:42Z",
+   "last_checked": "2026-10-28T23:58:58Z",
    "final_url": "http://old.protein.bio.unipd.it/neemo/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
    },
    "latency_30d": {
     "p50": "≤2000 ms",
-    "p95": "≤2000 ms",
-    "mean_ms": 1530
+    "p95": "≤5000 ms",
+    "mean_ms": 1570
    }
   },
   {
@@ -2200,51 +2218,51 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:42Z",
+   "last_checked": "2026-10-28T23:58:58Z",
    "final_url": "http://old.protein.bio.unipd.it/pasta2/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
    },
    "latency_30d": {
     "p50": "≤2000 ms",
-    "p95": "≤2000 ms",
-    "mean_ms": 1451
+    "p95": "≤5000 ms",
+    "mean_ms": 1487
    }
   },
   {
@@ -2261,51 +2279,51 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:42Z",
+   "last_checked": "2026-10-28T23:58:58Z",
    "final_url": "http://old.protein.bio.unipd.it/raphael/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
    },
    "latency_30d": {
     "p50": "≤2000 ms",
-    "p95": "≤2000 ms",
-    "mean_ms": 1287
+    "p95": "≤5000 ms",
+    "mean_ms": 1377
    }
   },
   {
@@ -2322,43 +2340,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:42Z",
+   "last_checked": "2026-10-28T23:58:57Z",
    "final_url": "http://old.protein.bio.unipd.it/repeatsdb-lite/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
@@ -2366,7 +2384,7 @@
    "latency_30d": {
     "p50": "≤2000 ms",
     "p95": "≤2000 ms",
-    "mean_ms": 1390
+    "mean_ms": 1358
    }
   },
   {
@@ -2383,51 +2401,51 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:42Z",
+   "last_checked": "2026-10-28T23:58:58Z",
    "final_url": "http://old.protein.bio.unipd.it/rubi/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
    },
    "latency_30d": {
     "p50": "≤2000 ms",
-    "p95": "≤2000 ms",
-    "mean_ms": 1461
+    "p95": "≤5000 ms",
+    "mean_ms": 1512
    }
   },
   {
@@ -2444,43 +2462,43 @@
    "code": 200,
    "error": null,
    "first_seen": "2026-10-27T09:19:14Z",
-   "last_checked": "2026-10-27T23:59:42Z",
+   "last_checked": "2026-10-28T23:58:58Z",
    "final_url": "http://old.protein.bio.unipd.it/soda/",
    "url_review": false,
    "tls_warning": null,
    "windows": {
     "today": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.25,
+     "checks": 18,
      "down": 0,
      "challenged": 0
     },
     "7d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "30d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "90d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     },
     "365d": {
      "uptime": 1.0,
-     "coverage": 0.3111111111111111,
-     "checks": 14,
+     "coverage": 0.27350427350427353,
+     "checks": 32,
      "down": 0,
      "challenged": 0
     }
@@ -2488,18 +2506,18 @@
    "latency_30d": {
     "p50": "≤2000 ms",
     "p95": "≤2000 ms",
-    "mean_ms": 1212
+    "mean_ms": 1355
    }
   }
  ],
  "activity": {
-  "generated": "2026-10-27T23:59:46Z",
+  "generated": "2026-10-28T23:59:43Z",
   "repos": {
    "mobidb": {
     "name": "MobiDB",
     "repo": "BioComputingUP/mobidb-ui",
     "error": "404: repository not found or private; the token cannot read it (set the ACTIVITY_TOKEN secret)",
-    "fetched_at": "2026-10-27T23:59:46Z",
+    "fetched_at": "2026-10-28T23:59:43Z",
     "freshness": "unknown"
    },
    "ped": {
@@ -2517,7 +2535,7 @@
      "url": "https://github.com/BioComputingUP/ped5-ui/commit/40b2996038ee81412725d4737d6e4d3f67f287a3"
     },
     "error": null,
-    "fetched_at": "2026-10-27T23:59:46Z",
+    "fetched_at": "2026-10-28T23:59:43Z",
     "freshness": "quiet"
    },
    "apicuron": {
@@ -2535,21 +2553,21 @@
      "url": "https://github.com/BioComputingUP/apicuron/commit/6b0d322cfb91a4dea238ad5ead4ea071b47241f1"
     },
     "error": null,
-    "fetched_at": "2026-10-27T23:59:46Z",
+    "fetched_at": "2026-10-28T23:59:43Z",
     "freshness": "recent"
    },
    "ring": {
     "name": "RING",
     "repo": "BioComputingUP/ring-ui",
     "error": "404: repository not found or private; the token cannot read it (set the ACTIVITY_TOKEN secret)",
-    "fetched_at": "2026-10-27T23:59:46Z",
+    "fetched_at": "2026-10-28T23:59:43Z",
     "freshness": "unknown"
    },
    "biocomputingup": {
     "name": "BioComputing UP website",
     "repo": "BioComputingUP/bup-ui",
     "error": "404: repository not found or private; the token cannot read it (set the ACTIVITY_TOKEN secret)",
-    "fetched_at": "2026-10-27T23:59:46Z",
+    "fetched_at": "2026-10-28T23:59:43Z",
     "freshness": "unknown"
    },
    "nto-registry": {
@@ -2567,14 +2585,14 @@
      "url": "https://github.com/BioComputingUP/nto-registry/commit/90578813a42b509c956b8ddfe0a72f05351166fd"
     },
     "error": null,
-    "fetched_at": "2026-10-27T23:59:46Z",
+    "fetched_at": "2026-10-28T23:59:43Z",
     "freshness": "active"
    },
    "dome-ml": {
     "name": "DOME-ML website",
     "repo": "BioComputingUP/dome-ml-ui",
     "error": "404: repository not found or private; the token cannot read it (set the ACTIVITY_TOKEN secret)",
-    "fetched_at": "2026-10-27T23:59:46Z",
+    "fetched_at": "2026-10-28T23:59:43Z",
     "freshness": "unknown"
    },
    "dome-registry": {
@@ -2592,7 +2610,7 @@
      "url": "https://github.com/BioComputingUP/dome-registry/commit/4978003db56b9a36bc078689ceb4bf51679be708"
     },
     "error": null,
-    "fetched_at": "2026-10-27T23:59:46Z",
+    "fetched_at": "2026-10-28T23:59:43Z",
     "freshness": "quiet"
    },
    "dome-copilot": {
@@ -2610,14 +2628,14 @@
      "url": "https://github.com/IFCA-Advanced-Computing/dome-copilot/commit/e157c7b56b2ef326dd9b3523b270591ba65a3542"
     },
     "error": null,
-    "fetched_at": "2026-10-27T23:59:46Z",
+    "fetched_at": "2026-10-28T23:59:43Z",
     "freshness": "quiet"
    },
    "osai": {
     "name": "OSAI",
     "repo": "BioComputingUP/dome-ml-osai-ui",
     "error": "404: repository not found or private; the token cannot read it (set the ACTIVITY_TOKEN secret)",
-    "fetched_at": "2026-10-27T23:59:46Z",
+    "fetched_at": "2026-10-28T23:59:43Z",
     "freshness": "unknown"
    },
    "dome-observatory": {
@@ -2635,7 +2653,7 @@
      "url": "https://github.com/BioComputingUP/dome-ml-observatory/commit/c749889b8f9b3cf3366c1a31e4bf7392bdbf0d14"
     },
     "error": null,
-    "fetched_at": "2026-10-27T23:59:46Z",
+    "fetched_at": "2026-10-28T23:59:43Z",
     "freshness": "active"
    }
   }
