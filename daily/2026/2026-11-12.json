@@ -1,0 +1,649 @@
+{
+ "date": "2026-11-12",
+ "interval_minutes": 20,
+ "runs": 84,
+ "first_run": "2026-11-12T00:15:27Z",
+ "last_run": "2026-11-12T23:55:17Z",
+ "resources": {
+  "disprot": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 62210,
+   "latency_hist": [
+    0,
+    4,
+    71,
+    9,
+    0,
+    0,
+    0
+   ]
+  },
+  "disprot--api": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 67283,
+   "latency_hist": [
+    0,
+    4,
+    70,
+    8,
+    2,
+    0,
+    0
+   ]
+  },
+  "mobidb": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 66223,
+   "latency_hist": [
+    0,
+    4,
+    68,
+    12,
+    0,
+    0,
+    0
+   ]
+  },
+  "mobidb--api": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 79375,
+   "latency_hist": [
+    0,
+    0,
+    54,
+    30,
+    0,
+    0,
+    0
+   ]
+  },
+  "repeatsdb": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 66453,
+   "latency_hist": [
+    0,
+    2,
+    70,
+    11,
+    1,
+    0,
+    0
+   ]
+  },
+  "repeatsdb--api": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 117263,
+   "latency_hist": [
+    0,
+    0,
+    0,
+    82,
+    2,
+    0,
+    0
+   ]
+  },
+  "ped": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 63015,
+   "latency_hist": [
+    0,
+    4,
+    72,
+    8,
+    0,
+    0,
+    0
+   ]
+  },
+  "ped--api": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 148207,
+   "latency_hist": [
+    0,
+    0,
+    0,
+    64,
+    20,
+    0,
+    0
+   ]
+  },
+  "fuzdb": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 64759,
+   "latency_hist": [
+    0,
+    1,
+    74,
+    9,
+    0,
+    0,
+    0
+   ]
+  },
+  "fuzdb--api": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 65603,
+   "latency_hist": [
+    0,
+    2,
+    73,
+    9,
+    0,
+    0,
+    0
+   ]
+  },
+  "apicuron": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 65970,
+   "latency_hist": [
+    0,
+    2,
+    72,
+    10,
+    0,
+    0,
+    0
+   ]
+  },
+  "apicuron--api": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 66094,
+   "latency_hist": [
+    0,
+    1,
+    74,
+    9,
+    0,
+    0,
+    0
+   ]
+  },
+  "caid": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 65243,
+   "latency_hist": [
+    0,
+    7,
+    66,
+    10,
+    1,
+    0,
+    0
+   ]
+  },
+  "caid--api": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 70935,
+   "latency_hist": [
+    0,
+    0,
+    70,
+    14,
+    0,
+    0,
+    0
+   ]
+  },
+  "idpcentral": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 205693,
+   "latency_hist": [
+    0,
+    0,
+    0,
+    20,
+    62,
+    2,
+    0
+   ]
+  },
+  "phytotypedb": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 59113,
+   "latency_hist": [
+    0,
+    9,
+    68,
+    7,
+    0,
+    0,
+    0
+   ]
+  },
+  "vhldb": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 61376,
+   "latency_hist": [
+    0,
+    3,
+    77,
+    4,
+    0,
+    0,
+    0
+   ]
+  },
+  "ring": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 70507,
+   "latency_hist": [
+    0,
+    0,
+    73,
+    10,
+    1,
+    0,
+    0
+   ]
+  },
+  "fuzdrop": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 73059,
+   "latency_hist": [
+    0,
+    0,
+    71,
+    12,
+    1,
+    0,
+    0
+   ]
+  },
+  "fuzpred": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 76176,
+   "latency_hist": [
+    0,
+    0,
+    66,
+    16,
+    2,
+    0,
+    0
+   ]
+  },
+  "inga": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 79003,
+   "latency_hist": [
+    0,
+    0,
+    59,
+    23,
+    2,
+    0,
+    0
+   ]
+  },
+  "bluues-bup": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 70006,
+   "latency_hist": [
+    0,
+    0,
+    75,
+    8,
+    1,
+    0,
+    0
+   ]
+  },
+  "pasta": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 71616,
+   "latency_hist": [
+    0,
+    0,
+    68,
+    15,
+    1,
+    0,
+    0
+   ]
+  },
+  "biocomputingup": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 211432,
+   "latency_hist": [
+    0,
+    0,
+    0,
+    43,
+    41,
+    0,
+    0
+   ]
+  },
+  "nto-registry": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 28941,
+   "latency_hist": [
+    12,
+    67,
+    5,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "dome-ml": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 58750,
+   "latency_hist": [
+    0,
+    7,
+    73,
+    3,
+    1,
+    0,
+    0
+   ]
+  },
+  "dome-registry": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 58089,
+   "latency_hist": [
+    0,
+    6,
+    75,
+    2,
+    1,
+    0,
+    0
+   ]
+  },
+  "dome-registry--api": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 60281,
+   "latency_hist": [
+    0,
+    3,
+    78,
+    2,
+    1,
+    0,
+    0
+   ]
+  },
+  "dome-copilot": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 50799,
+   "latency_hist": [
+    0,
+    18,
+    66,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "osai": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 58702,
+   "latency_hist": [
+    0,
+    7,
+    74,
+    2,
+    1,
+    0,
+    0
+   ]
+  },
+  "dome-observatory": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 55757,
+   "latency_hist": [
+    0,
+    10,
+    73,
+    0,
+    1,
+    0,
+    0
+   ]
+  },
+  "align2": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 113910,
+   "latency_hist": [
+    0,
+    2,
+    30,
+    43,
+    9,
+    0,
+    0
+   ]
+  },
+  "bluues": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 121559,
+   "latency_hist": [
+    0,
+    2,
+    16,
+    61,
+    5,
+    0,
+    0
+   ]
+  },
+  "fells": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 118088,
+   "latency_hist": [
+    0,
+    4,
+    17,
+    58,
+    5,
+    0,
+    0
+   ]
+  },
+  "neemo": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 130521,
+   "latency_hist": [
+    0,
+    2,
+    7,
+    67,
+    8,
+    0,
+    0
+   ]
+  },
+  "pasta2": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 121520,
+   "latency_hist": [
+    0,
+    3,
+    13,
+    62,
+    6,
+    0,
+    0
+   ]
+  },
+  "raphael": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 118332,
+   "latency_hist": [
+    0,
+    4,
+    14,
+    61,
+    5,
+    0,
+    0
+   ]
+  },
+  "repeatsdb-lite": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 116390,
+   "latency_hist": [
+    0,
+    5,
+    12,
+    65,
+    2,
+    0,
+    0
+   ]
+  },
+  "rubi": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 125737,
+   "latency_hist": [
+    0,
+    2,
+    17,
+    59,
+    6,
+    0,
+    0
+   ]
+  },
+  "soda": {
+   "checks": 84,
+   "up": 84,
+   "challenged": 0,
+   "down": 0,
+   "latency_sum_ms": 109928,
+   "latency_hist": [
+    1,
+    6,
+    17,
+    56,
+    4,
+    0,
+    0
+   ]
+  }
+ }
+}
