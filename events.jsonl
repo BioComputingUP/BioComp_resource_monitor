@@ -176,3 +176,5 @@
 {"ts": "2026-11-11T09:55:18Z", "id": "repeatsdb--api", "event": "state_change", "from": "up", "to": "down", "code": 503, "reason": "http_503", "error": null}
 {"ts": "2026-11-11T10:15:27Z", "id": "repeatsdb", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
 {"ts": "2026-11-11T10:15:27Z", "id": "repeatsdb--api", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
+{"ts": "2026-11-13T17:15:29Z", "id": "biocomputingup", "event": "state_change", "from": "up", "to": "down", "code": null, "reason": "connect_timeout", "error": "HTTPSConnectionPool(host='biocomputingup.it', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='biocomputingup.it', port=443) at 0x72e031345b80>, 'Connection to biocomputingup.it timed out. (connect timeout=10)'))"}
+{"ts": "2026-11-13T17:35:22Z", "id": "biocomputingup", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
