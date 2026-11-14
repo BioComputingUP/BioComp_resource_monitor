@@ -7,9 +7,9 @@
 | | |
 |---|---|
 | **Monitored** | 32 websites and 8 APIs — every one, every 20 minutes, continuously |
-| **Last check** | 2026-11-13T23:58:57Z (0 min ago) |
-| **Runs in the last 24 h** | 88 of a target 72 |
-| **Checks recorded** | 1036 runs since monitoring began |
+| **Last check** | 2026-11-14T21:35:19Z (0 min ago) |
+| **Runs in the last 24 h** | 89 of a target 72 |
+| **Checks recorded** | 1114 runs since monitoring began |
 | **Runs on** | [GitHub Actions → monitor-check](https://github.com/BioComputingUP/BioComp_resource_monitor/actions/workflows/monitor-check.yml) |
 | **Visual dashboard** | https://biocomputingup.github.io/BioComp_resource_monitor/ |
 
@@ -30,16 +30,16 @@ An API counts as up only when it answers 2xx with JSON that matches its `api.exp
 | Resource | Repository | Last push | Activity | Head commit |
 |---|---|---|---|---|
 | MobiDB | [BioComputingUP/mobidb-ui](https://github.com/BioComputingUP/mobidb-ui) | — (never) | ⚪ unknown ⚠️ 404: repository not found or private; the token cannot read it (set the ACTIVITY_TOKEN secret) | — |
-| PED | [BioComputingUP/ped5-ui](https://github.com/BioComputingUP/ped5-ui) `main` | 2026-09-07T12:26:09Z (67 days ago) | 🔴 quiet (≥30 d) | [`40b2996`](https://github.com/BioComputingUP/ped5-ui/commit/40b2996038ee81412725d4737d6e4d3f67f287a3) Test local configuration — Ivan Mičetić, 2026-09-07 |
-| APICURON | [BioComputingUP/apicuron](https://github.com/BioComputingUP/apicuron) `master` | 2026-11-12T17:29:01Z (30 h ago) | 🟢 active (<7 d) | [`743f2c1`](https://github.com/BioComputingUP/apicuron/commit/743f2c1021dadaf1fff966263ebbc4f9fde0c36e) Merge pull request #32 from BioComputingUP/feat/orcid-entry — Mehdi Zoubiri, 2026-11-12 |
+| PED | [BioComputingUP/ped5-ui](https://github.com/BioComputingUP/ped5-ui) `main` | 2026-09-07T12:26:09Z (68 days ago) | 🔴 quiet (≥30 d) | [`40b2996`](https://github.com/BioComputingUP/ped5-ui/commit/40b2996038ee81412725d4737d6e4d3f67f287a3) Test local configuration — Ivan Mičetić, 2026-09-07 |
+| APICURON | [BioComputingUP/apicuron](https://github.com/BioComputingUP/apicuron) `master` | 2026-11-12T17:29:01Z (2 days ago) | 🟢 active (<7 d) | [`743f2c1`](https://github.com/BioComputingUP/apicuron/commit/743f2c1021dadaf1fff966263ebbc4f9fde0c36e) Merge pull request #32 from BioComputingUP/feat/orcid-entry — Mehdi Zoubiri, 2026-11-12 |
 | RING | [BioComputingUP/ring-ui](https://github.com/BioComputingUP/ring-ui) | — (never) | ⚪ unknown ⚠️ 404: repository not found or private; the token cannot read it (set the ACTIVITY_TOKEN secret) | — |
 | BioComputing UP website | [BioComputingUP/bup-ui](https://github.com/BioComputingUP/bup-ui) | — (never) | ⚪ unknown ⚠️ 404: repository not found or private; the token cannot read it (set the ACTIVITY_TOKEN secret) | — |
-| NTO Registry | [BioComputingUP/nto-registry](https://github.com/BioComputingUP/nto-registry) `main` | 2026-10-22T15:37:29Z (22 days ago) | 🟡 recent (<30 d) | [`9057881`](https://github.com/BioComputingUP/nto-registry/commit/90578813a42b509c956b8ddfe0a72f05351166fd) Security: update site dependencies to clear npm audit advisories — Gavin Farrell, 2026-10-22 |
+| NTO Registry | [BioComputingUP/nto-registry](https://github.com/BioComputingUP/nto-registry) `main` | 2026-10-22T15:37:29Z (23 days ago) | 🟡 recent (<30 d) | [`9057881`](https://github.com/BioComputingUP/nto-registry/commit/90578813a42b509c956b8ddfe0a72f05351166fd) Security: update site dependencies to clear npm audit advisories — Gavin Farrell, 2026-10-22 |
 | DOME-ML website | [BioComputingUP/dome-ml-ui](https://github.com/BioComputingUP/dome-ml-ui) | — (never) | ⚪ unknown ⚠️ 404: repository not found or private; the token cannot read it (set the ACTIVITY_TOKEN secret) | — |
-| DOME Registry | [BioComputingUP/dome-registry](https://github.com/BioComputingUP/dome-registry) `main` | 2026-07-29T13:14:04Z (107 days ago) | 🔴 quiet (≥30 d) | [`4978003`](https://github.com/BioComputingUP/dome-registry/commit/4978003db56b9a36bc078689ceb4bf51679be708) Add dome 2.0 schema + Logo modification — abdelghaniomar, 2026-07-29 |
-| DOME Copilot | [IFCA-Advanced-Computing/dome-copilot](https://github.com/IFCA-Advanced-Computing/dome-copilot) `master` | 2026-03-30T11:32:42Z (228 days ago) | 🔴 quiet (≥30 d) | [`e157c7b`](https://github.com/IFCA-Advanced-Computing/dome-copilot/commit/e157c7b56b2ef326dd9b3523b270591ba65a3542) feat: make the model names configurable — Ignacio Heredia, 2026-03-30 |
+| DOME Registry | [BioComputingUP/dome-registry](https://github.com/BioComputingUP/dome-registry) `main` | 2026-07-29T13:14:04Z (108 days ago) | 🔴 quiet (≥30 d) | [`4978003`](https://github.com/BioComputingUP/dome-registry/commit/4978003db56b9a36bc078689ceb4bf51679be708) Add dome 2.0 schema + Logo modification — abdelghaniomar, 2026-07-29 |
+| DOME Copilot | [IFCA-Advanced-Computing/dome-copilot](https://github.com/IFCA-Advanced-Computing/dome-copilot) `master` | 2026-03-30T11:32:42Z (229 days ago) | 🔴 quiet (≥30 d) | [`e157c7b`](https://github.com/IFCA-Advanced-Computing/dome-copilot/commit/e157c7b56b2ef326dd9b3523b270591ba65a3542) feat: make the model names configurable — Ignacio Heredia, 2026-03-30 |
 | OSAI | [BioComputingUP/dome-ml-osai-ui](https://github.com/BioComputingUP/dome-ml-osai-ui) | — (never) | ⚪ unknown ⚠️ 404: repository not found or private; the token cannot read it (set the ACTIVITY_TOKEN secret) | — |
-| DOME Observatory | [BioComputingUP/dome-ml-observatory](https://github.com/BioComputingUP/dome-ml-observatory) `main` | 2026-10-22T15:36:34Z (22 days ago) | 🟡 recent (<30 d) | [`c749889`](https://github.com/BioComputingUP/dome-ml-observatory/commit/c749889b8f9b3cf3366c1a31e4bf7392bdbf0d14) Security: update dependencies to clear npm audit advisories — gavinfarrell, 2026-10-22 |
+| DOME Observatory | [BioComputingUP/dome-ml-observatory](https://github.com/BioComputingUP/dome-ml-observatory) `main` | 2026-10-22T15:36:34Z (23 days ago) | 🟡 recent (<30 d) | [`c749889`](https://github.com/BioComputingUP/dome-ml-observatory/commit/c749889b8f9b3cf3366c1a31e4bf7392bdbf0d14) Security: update dependencies to clear npm audit advisories — gavinfarrell, 2026-10-22 |
 
 ---
 
@@ -59,10 +59,10 @@ None.
 
 | Resource | 30d uptime | 30d coverage | Down checks |
 |---|---|---|---|
-| [DOME Copilot](https://dome-copilot.ifca.es/) | 89.74% | 81.79% | 106 |
-| [RepeatsDB](https://repeatsdb.org/) | 97.49% | 81.64% | 26 |
-| [RepeatsDB API](https://repeatsdb.org/api/production/annotations?skip=0&limit=1) | 97.49% | 81.64% | 26 |
-| [BioComputing UP website](https://biocomputingup.it/) | 98.84% | 81.64% | 12 |
+| [DOME Copilot](https://dome-copilot.ifca.es/) | 90.46% | 83.66% | 106 |
+| [RepeatsDB](https://repeatsdb.org/) | 97.67% | 83.51% | 26 |
+| [RepeatsDB API](https://repeatsdb.org/api/production/annotations?skip=0&limit=1) | 97.67% | 83.51% | 26 |
+| [BioComputing UP website](https://biocomputingup.it/) | 98.92% | 83.51% | 12 |
 
 ---
 
@@ -72,46 +72,46 @@ All 32 websites and 8 APIs, sorted by name. Sortable and searchable on the [dash
 
 | Resource | State | Today | 7d | 30d | 90d | 365d | Coverage 30d | p95 30d |
 |---|---|---|---|---|---|---|---|---|
-| [Align2](http://old.protein.bio.unipd.it/align2/) | 🟢 up | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 81.64% | ≤5000 ms |
-| [APICURON](https://apicuron.org/) | 🟢 up | 100.00% | 99.83% | 99.81% | 99.81% | 99.81% | 81.64% | ≤2000 ms |
-| [APICURON API](https://apicuron.org/api/home) | 🟢 up | 100.00% | 99.83% | 99.81% | 99.81% | 99.81% | 81.64% | ≤2000 ms |
-| [BioComputing UP website](https://biocomputingup.it/) | 🟢 up | 98.86% | 99.34% | 98.84% | 98.84% | 98.84% | 81.64% | ≤5000 ms |
-| [BLUUES](https://bluues.biocomputingup.it/) | 🟢 up | 100.00% | 99.83% | 99.81% | 99.81% | 99.81% | 81.80% | ≤2000 ms |
-| [BLUUES](http://old.protein.bio.unipd.it/bluues/) | 🟢 up | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 81.64% | ≤5000 ms |
-| [CAID](https://caid.idpcentral.org/) | 🟢 up | 100.00% | 99.83% | 99.81% | 99.81% | 99.81% | 81.64% | ≤2000 ms |
-| [CAID API](https://caid.idpcentral.org/dataset-repository/api/dataset/) | 🟢 up | 100.00% | 99.83% | 99.81% | 99.81% | 99.81% | 81.64% | ≤2000 ms |
-| [DisProt](https://disprot.org/) | 🟢 up | 100.00% | 99.83% | 99.81% | 99.81% | 99.81% | 81.64% | ≤2000 ms |
-| [DisProt API](https://disprot.org/api/DP00003) | 🟢 up | 100.00% | 99.83% | 99.81% | 99.81% | 99.81% | 81.64% | ≤2000 ms |
-| [DOME Copilot](https://dome-copilot.ifca.es/) | 🟢 up ⚠️ TLS | 100.00% | 82.48% | 89.74% | 89.74% | 89.74% | 81.79% | ≤1000 ms |
-| [DOME Observatory](https://observatory.dome-ml.org/) | 🟢 up | 100.00% | 100.00% | 99.90% | 99.90% | 99.90% | 81.79% | ≤1000 ms |
-| [DOME Registry](https://registry.dome-ml.org/) | 🟢 up | 100.00% | 100.00% | 99.90% | 99.90% | 99.90% | 81.79% | ≤1000 ms |
-| [DOME Registry API](https://registry.dome-ml.org/api/review?skip=0&limit=1) | 🟢 up | 100.00% | 100.00% | 99.90% | 99.90% | 99.90% | 81.79% | ≤2000 ms |
-| [DOME-ML website](https://dome-ml.org/) | 🟢 up | 100.00% | 99.83% | 99.81% | 99.81% | 99.81% | 81.79% | ≤2000 ms |
-| [FELLS](http://old.protein.bio.unipd.it/fells/) | 🟢 up | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 81.64% | ≤5000 ms |
-| [FuzDB](https://fuzdb.org/) | 🟢 up | 100.00% | 99.83% | 99.81% | 99.81% | 99.81% | 81.64% | ≤2000 ms |
-| [FuzDB API](https://fuzdb.org/api/entries?entry_id=FC00001) | 🟢 up | 100.00% | 99.83% | 99.81% | 99.81% | 99.81% | 81.64% | ≤2000 ms |
-| [FuzDrop](https://fuzdrop.bio.unipd.it/) | 🟢 up | 100.00% | 99.83% | 99.81% | 99.81% | 99.81% | 81.64% | ≤2000 ms |
-| [FuzPred](https://fuzpred.bio.unipd.it/predictor) | 🟢 up | 100.00% | 99.83% | 99.81% | 99.81% | 99.81% | 81.64% | ≤2000 ms |
-| [IDPcentral](https://idpcentral.org/) | 🟢 up | 100.00% | 99.83% | 99.61% | 99.61% | 99.61% | 81.64% | ≤5000 ms |
-| [INGA](https://inga.bio.unipd.it/) | 🟢 up | 100.00% | 99.83% | 99.81% | 99.81% | 99.81% | 81.64% | ≤2000 ms |
-| [MobiDB](https://mobidb.org/) | 🟢 up | 100.00% | 99.83% | 99.81% | 99.81% | 99.81% | 81.64% | ≤2000 ms |
-| [MobiDB API](https://mobidb.org/api/download?acc=P04637&format=json) | 🟢 up | 100.00% | 99.83% | 99.81% | 99.81% | 99.81% | 81.64% | ≤2000 ms |
-| [NEEMO](http://old.protein.bio.unipd.it/neemo/) | 🟢 up | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 81.64% | ≤5000 ms |
-| [NTO Registry](https://nto-registry.org/) | 🟢 up | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 81.64% | ≤1000 ms |
-| [OSAI](https://osai.dome-ml.org/) | 🟢 up | 100.00% | 100.00% | 99.90% | 99.90% | 99.90% | 81.79% | ≤1000 ms |
-| [PASTA](https://pasta.biocomputingup.it/) | 🟢 up | 100.00% | 99.83% | 99.81% | 99.81% | 99.81% | 81.80% | ≤2000 ms |
-| [PASTA 2.0](http://old.protein.bio.unipd.it/pasta2/) | 🟢 up | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 81.64% | ≤2000 ms |
-| [PED](https://proteinensemble.org/) | 🟢 up | 100.00% | 99.83% | 99.81% | 99.81% | 99.81% | 81.64% | ≤2000 ms |
-| [PED API](https://deposition.proteinensemble.org/api/entries/PED00001) | 🟢 up | 100.00% | 99.50% | 99.52% | 99.52% | 99.52% | 81.64% | ≤5000 ms |
-| [PhytotypeDB](http://phytotypedb.bio.unipd.it/) | 🟢 up | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 81.64% | ≤2000 ms |
-| [RAPHAEL](http://old.protein.bio.unipd.it/raphael/) | 🟢 up | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 81.64% | ≤2000 ms |
-| [RepeatsDB](https://repeatsdb.org/) | 🟢 up | 100.00% | 99.50% | 97.49% | 97.49% | 97.49% | 81.64% | ≤2000 ms |
-| [RepeatsDB API](https://repeatsdb.org/api/production/annotations?skip=0&limit=1) | 🟢 up | 100.00% | 99.50% | 97.49% | 97.49% | 97.49% | 81.64% | ≤5000 ms |
-| [RepeatsDB-lite](http://old.protein.bio.unipd.it/repeatsdb-lite/) | 🟢 up | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 81.64% | ≤2000 ms |
-| [RING](https://ring.biocomputingup.it/) | 🟢 up | 100.00% | 99.83% | 99.81% | 99.81% | 99.81% | 81.64% | ≤2000 ms |
-| [RUBI](http://old.protein.bio.unipd.it/rubi/) | 🟢 up | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 81.64% | ≤5000 ms |
-| [SODA](http://old.protein.bio.unipd.it/soda/) | 🟢 up | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 81.64% | ≤2000 ms |
-| [VHLdb](https://vhldb.org/) | 🟢 up | 100.00% | 99.83% | 99.81% | 99.81% | 99.81% | 81.64% | ≤2000 ms |
+| [Align2](http://old.protein.bio.unipd.it/align2/) | 🟢 up | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 83.51% | ≤5000 ms |
+| [APICURON](https://apicuron.org/) | 🟢 up | 100.00% | 99.83% | 99.82% | 99.82% | 99.82% | 83.51% | ≤2000 ms |
+| [APICURON API](https://apicuron.org/api/home) | 🟢 up | 100.00% | 99.83% | 99.82% | 99.82% | 99.82% | 83.51% | ≤2000 ms |
+| [BioComputing UP website](https://biocomputingup.it/) | 🟢 up | 100.00% | 99.49% | 98.92% | 98.92% | 98.92% | 83.51% | ≤5000 ms |
+| [BLUUES](https://bluues.biocomputingup.it/) | 🟢 up | 100.00% | 99.83% | 99.82% | 99.82% | 99.82% | 83.67% | ≤2000 ms |
+| [BLUUES](http://old.protein.bio.unipd.it/bluues/) | 🟢 up | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 83.51% | ≤5000 ms |
+| [CAID](https://caid.idpcentral.org/) | 🟢 up | 100.00% | 99.83% | 99.82% | 99.82% | 99.82% | 83.51% | ≤2000 ms |
+| [CAID API](https://caid.idpcentral.org/dataset-repository/api/dataset/) | 🟢 up | 100.00% | 99.83% | 99.82% | 99.82% | 99.82% | 83.51% | ≤2000 ms |
+| [DisProt](https://disprot.org/) | 🟢 up | 100.00% | 99.83% | 99.82% | 99.82% | 99.82% | 83.51% | ≤2000 ms |
+| [DisProt API](https://disprot.org/api/DP00003) | 🟢 up | 100.00% | 99.83% | 99.82% | 99.82% | 99.82% | 83.51% | ≤2000 ms |
+| [DOME Copilot](https://dome-copilot.ifca.es/) | 🟢 up ⚠️ TLS | 100.00% | 82.09% | 90.46% | 90.46% | 90.46% | 83.66% | ≤1000 ms |
+| [DOME Observatory](https://observatory.dome-ml.org/) | 🟢 up | 100.00% | 100.00% | 99.91% | 99.91% | 99.91% | 83.66% | ≤1000 ms |
+| [DOME Registry](https://registry.dome-ml.org/) | 🟢 up | 100.00% | 100.00% | 99.91% | 99.91% | 99.91% | 83.66% | ≤1000 ms |
+| [DOME Registry API](https://registry.dome-ml.org/api/review?skip=0&limit=1) | 🟢 up | 100.00% | 100.00% | 99.91% | 99.91% | 99.91% | 83.66% | ≤2000 ms |
+| [DOME-ML website](https://dome-ml.org/) | 🟢 up | 100.00% | 99.83% | 99.82% | 99.82% | 99.82% | 83.66% | ≤2000 ms |
+| [FELLS](http://old.protein.bio.unipd.it/fells/) | 🟢 up | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 83.51% | ≤5000 ms |
+| [FuzDB](https://fuzdb.org/) | 🟢 up | 100.00% | 99.83% | 99.82% | 99.82% | 99.82% | 83.51% | ≤2000 ms |
+| [FuzDB API](https://fuzdb.org/api/entries?entry_id=FC00001) | 🟢 up | 100.00% | 99.83% | 99.82% | 99.82% | 99.82% | 83.51% | ≤2000 ms |
+| [FuzDrop](https://fuzdrop.bio.unipd.it/) | 🟢 up | 100.00% | 99.83% | 99.82% | 99.82% | 99.82% | 83.51% | ≤2000 ms |
+| [FuzPred](https://fuzpred.bio.unipd.it/predictor) | 🟢 up | 100.00% | 99.83% | 99.82% | 99.82% | 99.82% | 83.51% | ≤2000 ms |
+| [IDPcentral](https://idpcentral.org/) | 🟢 up | 100.00% | 99.83% | 99.64% | 99.64% | 99.64% | 83.51% | ≤5000 ms |
+| [INGA](https://inga.bio.unipd.it/) | 🟢 up | 100.00% | 99.83% | 99.82% | 99.82% | 99.82% | 83.51% | ≤2000 ms |
+| [MobiDB](https://mobidb.org/) | 🟢 up | 100.00% | 99.83% | 99.82% | 99.82% | 99.82% | 83.51% | ≤2000 ms |
+| [MobiDB API](https://mobidb.org/api/download?acc=P04637&format=json) | 🟢 up | 100.00% | 99.83% | 99.82% | 99.82% | 99.82% | 83.51% | ≤2000 ms |
+| [NEEMO](http://old.protein.bio.unipd.it/neemo/) | 🟢 up | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 83.51% | ≤5000 ms |
+| [NTO Registry](https://nto-registry.org/) | 🟢 up | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 83.51% | ≤1000 ms |
+| [OSAI](https://osai.dome-ml.org/) | 🟢 up | 100.00% | 100.00% | 99.91% | 99.91% | 99.91% | 83.66% | ≤1000 ms |
+| [PASTA](https://pasta.biocomputingup.it/) | 🟢 up | 100.00% | 99.83% | 99.82% | 99.82% | 99.82% | 83.67% | ≤2000 ms |
+| [PASTA 2.0](http://old.protein.bio.unipd.it/pasta2/) | 🟢 up | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 83.51% | ≤2000 ms |
+| [PED](https://proteinensemble.org/) | 🟢 up | 100.00% | 99.83% | 99.82% | 99.82% | 99.82% | 83.51% | ≤2000 ms |
+| [PED API](https://deposition.proteinensemble.org/api/entries/PED00001) | 🟢 up | 100.00% | 99.49% | 99.55% | 99.55% | 99.55% | 83.51% | ≤5000 ms |
+| [PhytotypeDB](http://phytotypedb.bio.unipd.it/) | 🟢 up | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 83.51% | ≤2000 ms |
+| [RAPHAEL](http://old.protein.bio.unipd.it/raphael/) | 🟢 up | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 83.51% | ≤2000 ms |
+| [RepeatsDB](https://repeatsdb.org/) | 🟢 up | 100.00% | 99.49% | 97.67% | 97.67% | 97.67% | 83.51% | ≤2000 ms |
+| [RepeatsDB API](https://repeatsdb.org/api/production/annotations?skip=0&limit=1) | 🟢 up | 100.00% | 99.49% | 97.67% | 97.67% | 97.67% | 83.51% | ≤5000 ms |
+| [RepeatsDB-lite](http://old.protein.bio.unipd.it/repeatsdb-lite/) | 🟢 up | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 83.51% | ≤2000 ms |
+| [RING](https://ring.biocomputingup.it/) | 🟢 up | 100.00% | 99.83% | 99.82% | 99.82% | 99.82% | 83.51% | ≤2000 ms |
+| [RUBI](http://old.protein.bio.unipd.it/rubi/) | 🟢 up | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 83.51% | ≤5000 ms |
+| [SODA](http://old.protein.bio.unipd.it/soda/) | 🟢 up | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 83.51% | ≤2000 ms |
+| [VHLdb](https://vhldb.org/) | 🟢 up | 100.00% | 99.83% | 99.82% | 99.82% | 99.82% | 83.51% | ≤2000 ms |
 
 ---
 
@@ -149,4 +149,4 @@ The newest entries from `events.jsonl`, the full audit trail of every state chan
 
 ---
 
-Generated by [monitor/scripts/summarize.py](https://github.com/BioComputingUP/BioComp_resource_monitor/blob/main/monitor/scripts/summarize.py) at **2026-11-13T23:59:04Z**, and rewritten after every check. Machine-readable: [summary.json](https://github.com/BioComputingUP/BioComp_resource_monitor/blob/monitor-data/summary.json).
+Generated by [monitor/scripts/summarize.py](https://github.com/BioComputingUP/BioComp_resource_monitor/blob/main/monitor/scripts/summarize.py) at **2026-11-14T21:35:26Z**, and rewritten after every check. Machine-readable: [summary.json](https://github.com/BioComputingUP/BioComp_resource_monitor/blob/monitor-data/summary.json).
