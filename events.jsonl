@@ -222,3 +222,9 @@
 {"ts": "2026-11-19T15:35:24Z", "id": "dome-registry--api", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
 {"ts": "2026-11-19T15:35:24Z", "id": "osai", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
 {"ts": "2026-11-19T15:35:24Z", "id": "dome-observatory", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
+{"ts": "2026-11-20T10:35:22Z", "id": "dome-copilot", "event": "state_change", "from": "up", "to": "down", "code": null, "reason": "read_timeout", "error": "HTTPSConnectionPool(host='copilot.dome-ml.org', port=443): Read timed out. (read timeout=20)"}
+{"ts": "2026-11-20T10:55:24Z", "id": "dome-copilot", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
+{"ts": "2026-11-20T15:55:36Z", "id": "dome-copilot--api", "event": "state_change", "from": null, "to": "down", "code": 405, "reason": "http_405", "error": null}
+{"ts": "2026-11-20T15:55:36Z", "id": "fells--api", "event": "state_change", "from": null, "to": "up", "code": 200, "reason": "ok", "error": null}
+{"ts": "2026-11-20T23:15:33Z", "id": "ped--api", "event": "state_change", "from": "up", "to": "down", "code": null, "reason": "connection_error", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}
+{"ts": "2026-11-20T23:55:22Z", "id": "ped--api", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
