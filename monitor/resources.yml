@@ -165,10 +165,9 @@ resources:
 - id: dome-copilot
   name: DOME Copilot
   group: DOME ecosystem
-  url: https://dome-copilot.ifca.es/
-  repo: IFCA-Advanced-Computing/dome-copilot
+  url: https://copilot.dome-ml.org/
+  repo: BioComputingUP/dome-copilot
   enabled: true
-  # The server sends an incomplete TLS chain: recorded as up with a tls_warning until it is fixed.
 - id: osai
   name: OSAI
   group: DOME ecosystem
