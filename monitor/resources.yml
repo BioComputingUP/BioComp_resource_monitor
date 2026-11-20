@@ -196,6 +196,9 @@ resources:
   name: FELLS
   group: Legacy tools
   url: http://old.protein.bio.unipd.it/fells/
+  api:
+    url: http://old.protein.bio.unipd.it/fellsws/status/123456789012345678901234
+    expect: {field: Error, equals: None}
   enabled: true
 - id: neemo
   name: NEEMO
