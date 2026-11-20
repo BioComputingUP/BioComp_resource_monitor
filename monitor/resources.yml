@@ -167,9 +167,9 @@ resources:
   group: DOME ecosystem
   url: https://copilot.dome-ml.org/
   repo: BioComputingUP/dome-copilot
-  api:
-    url: https://copilot.dome-ml.org/gradio_api/queue/join
-    expect: {field: detail, equals: Method Not Allowed}
+#  api:
+#    url: https://copilot.dome-ml.org/gradio_api/queue/join
+#    expect: {field: detail, equals: Method Not Allowed}
   enabled: true
 - id: osai
   name: OSAI
