@@ -290,3 +290,39 @@
 {"ts": "2026-11-23T12:55:22Z", "id": "dome-observatory", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
 {"ts": "2026-11-23T17:15:34Z", "id": "inga", "event": "state_change", "from": "up", "to": "down", "code": null, "reason": "read_timeout", "error": "HTTPSConnectionPool(host='inga.bio.unipd.it', port=443): Read timed out. (read timeout=10)"}
 {"ts": "2026-11-23T17:35:27Z", "id": "inga", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
+{"ts": "2026-11-24T16:35:23Z", "id": "dome-registry", "event": "state_change", "from": "up", "to": "down", "code": null, "reason": "read_timeout", "error": "HTTPSConnectionPool(host='registry.dome-ml.org', port=443): Read timed out. (read timeout=10)"}
+{"ts": "2026-11-24T16:55:26Z", "id": "dome-registry", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
+{"ts": "2026-11-24T20:15:28Z", "id": "disprot", "event": "state_change", "from": "up", "to": "down", "code": null, "reason": "connection_refused", "error": "HTTPSConnectionPool(host='disprot.org', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='disprot.org', port=443): Failed to establish a new connection: [Errno 111] Connection refused\"))"}
+{"ts": "2026-11-24T20:15:28Z", "id": "disprot--api", "event": "state_change", "from": "up", "to": "down", "code": null, "reason": "read_timeout", "error": "HTTPSConnectionPool(host='disprot.org', port=443): Read timed out. (read timeout=10)"}
+{"ts": "2026-11-24T20:15:28Z", "id": "repeatsdb", "event": "state_change", "from": "up", "to": "down", "code": null, "reason": "read_timeout", "error": "HTTPSConnectionPool(host='repeatsdb.org', port=443): Read timed out. (read timeout=10)"}
+{"ts": "2026-11-24T20:15:28Z", "id": "repeatsdb--api", "event": "state_change", "from": "up", "to": "down", "code": null, "reason": "read_timeout", "error": "HTTPSConnectionPool(host='repeatsdb.org', port=443): Read timed out. (read timeout=10)"}
+{"ts": "2026-11-24T20:15:28Z", "id": "ped", "event": "state_change", "from": "up", "to": "down", "code": null, "reason": "read_timeout", "error": "HTTPSConnectionPool(host='proteinensemble.org', port=443): Read timed out. (read timeout=10)"}
+{"ts": "2026-11-24T20:15:28Z", "id": "ped--api", "event": "state_change", "from": "up", "to": "down", "code": null, "reason": "read_timeout", "error": "HTTPSConnectionPool(host='deposition.proteinensemble.org', port=443): Read timed out. (read timeout=10)"}
+{"ts": "2026-11-24T20:15:28Z", "id": "apicuron", "event": "state_change", "from": "up", "to": "down", "code": null, "reason": "read_timeout", "error": "HTTPSConnectionPool(host='apicuron.org', port=443): Read timed out. (read timeout=10)"}
+{"ts": "2026-11-24T20:15:28Z", "id": "apicuron--api", "event": "state_change", "from": "up", "to": "down", "code": null, "reason": "read_timeout", "error": "HTTPSConnectionPool(host='apicuron.org', port=443): Read timed out. (read timeout=10)"}
+{"ts": "2026-11-24T20:15:28Z", "id": "caid--api", "event": "state_change", "from": "up", "to": "down", "code": null, "reason": "read_timeout", "error": "HTTPSConnectionPool(host='caid.idpcentral.org', port=443): Read timed out. (read timeout=10)"}
+{"ts": "2026-11-24T20:15:28Z", "id": "vhldb", "event": "state_change", "from": "up", "to": "down", "code": null, "reason": "read_timeout", "error": "HTTPSConnectionPool(host='vhldb.org', port=443): Read timed out. (read timeout=10)"}
+{"ts": "2026-11-24T20:15:28Z", "id": "ring", "event": "state_change", "from": "up", "to": "down", "code": null, "reason": "read_timeout", "error": "HTTPSConnectionPool(host='ring.biocomputingup.it', port=443): Read timed out. (read timeout=10)"}
+{"ts": "2026-11-24T20:15:28Z", "id": "fuzpred", "event": "state_change", "from": "up", "to": "down", "code": null, "reason": "read_timeout", "error": "HTTPSConnectionPool(host='fuzpred.bio.unipd.it', port=443): Read timed out. (read timeout=10)"}
+{"ts": "2026-11-24T20:15:28Z", "id": "inga", "event": "state_change", "from": "up", "to": "down", "code": null, "reason": "read_timeout", "error": "HTTPSConnectionPool(host='inga.bio.unipd.it', port=443): Read timed out. (read timeout=10)"}
+{"ts": "2026-11-24T20:15:28Z", "id": "bluues-bup", "event": "state_change", "from": "up", "to": "down", "code": null, "reason": "read_timeout", "error": "HTTPSConnectionPool(host='bluues.biocomputingup.it', port=443): Read timed out. (read timeout=10)"}
+{"ts": "2026-11-24T20:15:28Z", "id": "dome-ml", "event": "state_change", "from": "up", "to": "down", "code": null, "reason": "read_timeout", "error": "HTTPSConnectionPool(host='dome-ml.org', port=443): Read timed out. (read timeout=10)"}
+{"ts": "2026-11-24T20:15:28Z", "id": "dome-registry", "event": "state_change", "from": "up", "to": "down", "code": null, "reason": "read_timeout", "error": "HTTPSConnectionPool(host='registry.dome-ml.org', port=443): Read timed out. (read timeout=10)"}
+{"ts": "2026-11-24T20:35:24Z", "id": "disprot", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
+{"ts": "2026-11-24T20:35:24Z", "id": "disprot--api", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
+{"ts": "2026-11-24T20:35:24Z", "id": "repeatsdb", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
+{"ts": "2026-11-24T20:35:24Z", "id": "repeatsdb--api", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
+{"ts": "2026-11-24T20:35:24Z", "id": "ped", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
+{"ts": "2026-11-24T20:35:24Z", "id": "ped--api", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
+{"ts": "2026-11-24T20:35:24Z", "id": "apicuron", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
+{"ts": "2026-11-24T20:35:24Z", "id": "apicuron--api", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
+{"ts": "2026-11-24T20:35:24Z", "id": "caid--api", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
+{"ts": "2026-11-24T20:35:24Z", "id": "vhldb", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
+{"ts": "2026-11-24T20:35:24Z", "id": "ring", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
+{"ts": "2026-11-24T20:35:24Z", "id": "fuzpred", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
+{"ts": "2026-11-24T20:35:24Z", "id": "inga", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
+{"ts": "2026-11-24T20:35:24Z", "id": "bluues-bup", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
+{"ts": "2026-11-24T20:35:24Z", "id": "dome-ml", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
+{"ts": "2026-11-24T20:35:24Z", "id": "dome-registry", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
+{"ts": "2026-11-24T21:15:32Z", "id": "disprot--api", "event": "state_change", "from": "up", "to": "down", "code": null, "reason": "read_timeout", "error": "HTTPSConnectionPool(host='disprot.org', port=443): Read timed out. (read timeout=20)"}
+{"ts": "2026-11-24T21:35:26Z", "id": "disprot--api", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
