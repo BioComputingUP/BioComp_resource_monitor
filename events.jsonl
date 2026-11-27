@@ -404,3 +404,5 @@
 {"ts": "2026-11-26T14:15:31Z", "id": "dome-registry", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
 {"ts": "2026-11-26T14:35:33Z", "id": "disprot--api", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
 {"ts": "2026-11-26T14:35:33Z", "id": "ped--api", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
+{"ts": "2026-11-27T21:55:22Z", "id": "ped--api", "event": "state_change", "from": "up", "to": "down", "code": null, "reason": "read_timeout", "error": "HTTPSConnectionPool(host='deposition.proteinensemble.org', port=443): Read timed out. (read timeout=20)"}
+{"ts": "2026-11-27T22:15:29Z", "id": "ped--api", "event": "state_change", "from": "down", "to": "up", "code": 200, "reason": "ok", "error": null}
